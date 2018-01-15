@@ -40,30 +40,16 @@ class play {
 			System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
 		}
 	}
-	static void keeper2() {
 
-	}
-	static void keeper3() {
 
-	}
-	static void keeper4() {
 
-	}
-	static void keeper5() {
 
-	}
-	static void keeper6() {
 
-	}
-	static void keeper7() {
 
-	}
-	static void keeper8() {
 
-	}
-	static void keeper9() {
 
-	}
+
+
 
 
     public static void main(String[] args) {
@@ -72,7 +58,7 @@ class play {
 
 		int menu;
 		int statusMenu=0;
-		do {
+		do { // while (statusMenu!=0);
 			System.out.println("\n     ___              _                                     _  _    _   ___ ");
 			System.out.println("    |  _|            | |                                   | || |  (_) |_  |");
 			System.out.println("    | |     __ _   __| | _   _   _ __    ___  _ __    __ _ | || |_  _    | |");
@@ -188,7 +174,7 @@ class play {
 					System.out.println("\n\n");
 
 					statusInput = "salah";
-					do {
+					do { //while (giliran<10);
 						sc.nextLine();
 						System.out.println("           +---------------------||-----------||---------------------+        ");
 						System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
@@ -261,7 +247,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 
-							do {
+							do { // while (statusInput.equals("salah"))
 								System.out.println("\n\n[Player 1] \n[Player 2]<-"); 
 								sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
 								keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
