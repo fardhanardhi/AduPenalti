@@ -2,7 +2,11 @@ import java.util.*;
 import java.io.*;
 
 class play {
-	static void getGameplay(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9) {
+	static void getVisual() {
+		
+	}
+
+	static void getGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9) {
 		System.out.println("    _______|_____________________||___________||_____________________|_______ ");
 		System.out.println("   |  _____________________________________________________________________  |");
 		System.out.println("   | |                                                                     | |");
@@ -266,7 +270,7 @@ class play {
 								switch (keeper) {
 									case 1:
 										getPapanSkor(statusInput, keeper, shooter, skor1, skor2, poin1, idPoin, tim1, tim2);
-										getGameplay(t1, t2, t3, t4, t5, t6, t7, t8, t9);
+										getGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9);
 										break;
 									case 2:
 										getPapanSkor(statusInput, keeper, shooter, skor1, skor2, poin1, idPoin, tim1, tim2);
