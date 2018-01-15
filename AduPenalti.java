@@ -3,10 +3,17 @@ import java.io.*;
 
 class play {
 	static void getVisual() {
-		
+
 	}
 
-	static void getGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9) {
+	static void getTampilanGawang(
+		String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, 
+		int skor1, int skor2, String tim1, String tim2
+		) 
+	{
+		System.out.println("           +---------------------||-----------||---------------------+        ");
+		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
+
 		System.out.println("    _______|_____________________||___________||_____________________|_______ ");
 		System.out.println("   |  _____________________________________________________________________  |");
 		System.out.println("   | |                                                                     | |");
@@ -26,22 +33,15 @@ class play {
 		System.out.println("   | |                                                                     | |");
 	}
 
-	static void getPapanSkor(String statusInput, int keeper, int shooter, int skor1, int skor2, String poin1[], int idPoin, String tim1, String tim2) {
-		statusInput = "benar";
+	static int setSkor(int keeper, int shooter, int skor1, String[] poin1, int idPoin) {
 		if (keeper != shooter) {
 			skor1 = skor1 + 1;
 			poin1[idPoin] = "o";
-			System.out.println("           +---------------------||-----------||---------------------+        ");
-			System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
 		}
 		else if (keeper == shooter) {
 			poin1[idPoin] = "x";
-			System.out.println("           +---------------------||-----------||---------------------+        ");
-			System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
 		}
 	}
-
-
 
 
 
@@ -255,10 +255,12 @@ class play {
 
 								switch (keeper) {
 									case 1:
-										getPapanSkor(statusInput, keeper, shooter, skor1, skor2, poin1, idPoin, tim1, tim2);
-										getGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9);
+										statusInput = "benar";
+										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
+										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2);
 										break;
 									case 2:
+
 										getPapanSkor(statusInput, keeper, shooter, skor1, skor2, poin1, idPoin, tim1, tim2);
 										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
 										System.out.println("   |  _____________________________________________________________________  |");
