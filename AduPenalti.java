@@ -6,11 +6,7 @@ class play {
 
 	}
 
-	static void getTampilanGawang(
-		String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, 
-		int skor1, int skor2, String tim1, String tim2
-		) 
-	{
+	static void getTampilanGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, int skor1, int skor2, String tim1, String tim2, int keeper) {
 		System.out.println("           +---------------------||-----------||---------------------+        ");
 		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
 
@@ -257,7 +253,7 @@ class play {
 									case 1:
 										statusInput = "benar";
 										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2);
+										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
 										break;
 									case 2:
 
