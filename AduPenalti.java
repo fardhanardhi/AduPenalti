@@ -1,13 +1,10 @@
 import java.util.*;
 import java.io.*;
 
-class Adu_Penalti {
+class play {
     public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Console console = System.console();
-
-System.out.println(ConsoleColors.RED + "RED COLORED" +
-ConsoleColors.RESET + " NORMAL");
 
 		int menu;
 		int statusMenu=0;
@@ -42,7 +39,7 @@ ConsoleColors.RESET + " NORMAL");
 			    menu = sc.nextInt();
 			} while (menu <= 0 && menu >= 2);
 
-			System.out.println("");
+			System.out.println();
 
 			statusMenu = 0;
 			switch (menu) {
