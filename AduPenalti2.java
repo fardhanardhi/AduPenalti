@@ -2,6 +2,62 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static String setBola(int shooter) {
+		switch (shooter) {
+			case 1:
+				t1 = "*";
+				break;
+			case 2:
+				t2 = "*";
+				break;
+			case 3:
+				t3 = "*";
+				break;
+			case 4:
+				t4 = "*";
+				break;
+			case 5:
+				t5 = "*";
+				break;
+			case 6:
+				t6 = "*";
+				break;
+			case 7:
+				t7 = "*";
+				break;
+			case 8:
+				t8 = "*";
+				break;
+			case 9:
+				t9 = "*";
+				break;
+			default:
+				System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
+				break;
+		}
+
+		if (shooter >= 1 && shooter <= 9) {
+			return "benar";
+		}
+		else {
+			return "salah";
+		}
+	}
+
+	static int setShooter(int tukar) {
+		if (tukar == 0) {
+			System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
+		}
+		else {
+			System.out.println("\n\n[Player 1]\n[Player 2] <-"); 
+		}
+
+		char[] sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
+		int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+
+		return shooter;
+	}
+
 	static void getStatusGol(int keeper, int shooter, String[] poin1, String[] poin2, String tim1, String tim2) {
 		if (keeper != shooter) {
 			System.out.println();
@@ -26,12 +82,21 @@ class play {
 	}
 
 	static void getPapanGol(String[] poin1, String[] poin2, String tim1, String tim2) {
-		System.out.println(); 
-		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-		System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
-		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-		System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
-		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+		System.out.println();
+		if (suddenDeath == true) {
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+			System.out.println("              | " + tim1 + " |  "+poin1[2]+"  |  "+poin1[4]+"  |  "+poin1[6]+"  |  "+poin1[8]+"  |  "+poin1[10]+"  |");
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+			System.out.println("              | " + tim2 + " |  "+poin2[1]+"  |  "+poin2[3]+"  |  "+poin2[5]+"  |  "+poin2[7]+"  |  "+poin2[9]+"  |");
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+		}
+		else {
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+			System.out.println("              * " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+			System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
+			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+		}
 	}
 
 	static void getPapanSkor(int skor1, int skor2, String tim1, String tim2) {
@@ -264,6 +329,8 @@ class play {
 
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
+	public static String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
+	public static boolean suddenDeath = false;
 
 	// ------ Main method ------------------------------------------------------------------------------------
 
@@ -309,7 +376,6 @@ class play {
 				case 1:
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
-					String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
 					int giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1, idTim2, idPoin=1;
 					char [] sembunyi;
@@ -392,52 +458,9 @@ class play {
 
 						if (tukar == 0) {
 							do {
-								System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
-								sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-								shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
-								switch (shooter) {
+								shooter = setShooter(tukar);
+								statusInput = setBola(shooter);
 
-									case 1:
-										t1 = "*";
-										statusInput = "benar";
-										break;
-									case 2:
-										t2 = "*";
-										statusInput = "benar";
-										break;
-									case 3:
-										t3 = "*";
-										statusInput = "benar";
-										break;
-									case 4:
-										t4 = "*";
-										statusInput = "benar";
-										break;
-									case 5:
-										t5 = "*";
-										statusInput = "benar";
-										break;
-									case 6:
-										t6 = "*";
-										statusInput = "benar";
-										break;
-									case 7:
-										t7 = "*";
-										statusInput = "benar";
-										break;
-									case 8:
-										t8 = "*";
-										statusInput = "benar";
-										break;
-									case 9:
-										t9 = "*";
-										statusInput = "benar";
-										break;
-									default:
-										System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-										statusInput = "salah";
-										break;
-								}
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
@@ -466,52 +489,9 @@ class play {
 
 						else if (tukar == 1) {
 							do {
-								System.out.println("\n\n[Player 1]\n[Player 2] <-"); 
-								sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-								shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
-								switch (shooter) {
+								shooter = setShooter(tukar);
+								statusInput = setBola(shooter);
 
-									case 1:
-										t1 = "*";
-										statusInput = "benar";
-										break;
-									case 2:
-										t2 = "*";
-										statusInput = "benar";
-										break;
-									case 3:
-										t3 = "*";
-										statusInput = "benar";
-										break;
-									case 4:
-										t4 = "*";
-										statusInput = "benar";
-										break;
-									case 5:
-										t5 = "*";
-										statusInput = "benar";
-										break;
-									case 6:
-										t6 = "*";
-										statusInput = "benar";
-										break;
-									case 7:
-										t7 = "*";
-										statusInput = "benar";
-										break;
-									case 8:
-										t8 = "*";
-										statusInput = "benar";
-										break;
-									case 9:
-										t9 = "*";
-										statusInput = "benar";
-										break;
-									default:
-										System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-										statusInput = "salah";
-										break;
-								}
 							} while (statusInput.equals("salah"));
 
 							do {
@@ -601,6 +581,7 @@ class play {
 						System.out.println("                              "+tim2);
 					}
 					else {
+						suddenDeath = true;
 						idPoin = 1;
 						System.out.println(idPoin);
 						poin1[1] = " ";
@@ -627,7 +608,7 @@ class play {
 						poin2[10] = " ";
 						poin2[11] = " ";
 
-						int sd = 0; // sudden death
+						int sd = 0; // mengulang sudden death
 						do {
 							System.out.println("\t ____          _             _       HASIL SERI");
 							System.out.println("\t|  _ \\        | |           | |           SKOR:            ");
@@ -651,51 +632,9 @@ class play {
 
 								if (tukar == 0) {
 									do {
-										System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
-										sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-										shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
-										switch (shooter) {
-											case 1:
-												t1 = "*";
-												statusInput = "benar";
-												break;
-											case 2:
-												t2 = "*";
-												statusInput = "benar";
-												break;
-											case 3:
-												t3 = "*";
-												statusInput = "benar";
-												break;
-											case 4:
-												t4 = "*";
-												statusInput = "benar";
-												break;
-											case 5:
-												t5 = "*";
-												statusInput = "benar";
-												break;
-											case 6:
-												t6 = "*";
-												statusInput = "benar";
-												break;
-											case 7:
-												t7 = "*";
-												statusInput = "benar";
-												break;
-											case 8:
-												t8 = "*";
-												statusInput = "benar";
-												break;
-											case 9:
-												t9 = "*";
-												statusInput = "benar";
-												break;
-											default:
-												System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-												statusInput = "salah";
-												break;
-										}
+										shooter = setShooter(tukar);
+										statusInput = setBola(shooter);
+
 									} while (statusInput.equals("salah"));
 
 									do {
@@ -725,52 +664,9 @@ class play {
 
 								else if (tukar == 1) {
 									do {
-										System.out.println("\n\n[Player 1]\n[Player 2] <-"); 
-										sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-										shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
-										switch (shooter) {
+										shooter = setShooter(tukar);
+										statusInput = setBola(shooter);
 
-											case 1:
-												t1 = "*";
-												statusInput = "benar";
-												break;
-											case 2:
-												t2 = "*";
-												statusInput = "benar";
-												break;
-											case 3:
-												t3 = "*";
-												statusInput = "benar";
-												break;
-											case 4:
-												t4 = "*";
-												statusInput = "benar";
-												break;
-											case 5:
-												t5 = "*";
-												statusInput = "benar";
-												break;
-											case 6:
-												t6 = "*";
-												statusInput = "benar";
-												break;
-											case 7:
-												t7 = "*";
-												statusInput = "benar";
-												break;
-											case 8:
-												t8 = "*";
-												statusInput = "benar";
-												break;
-											case 9:
-												t9 = "*";
-												statusInput = "benar";
-												break;
-											default:
-												System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-												statusInput = "salah";
-												break;
-										}
 									} while (statusInput.equals("salah"));
 
 									do {
