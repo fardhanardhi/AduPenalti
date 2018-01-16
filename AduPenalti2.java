@@ -185,15 +185,27 @@ class play {
 		}
 	}
 
-	static int setSkor(int keeper, int shooter, int skor1, String[] poin1, int idPoin) {
-		if (keeper != shooter) {
-			skor1 = skor1 + 1;
-			poin1[idPoin] = "o";
+	static int setSkor(int keeper, int shooter, int skor1, int skor2, String[] poin1, String[] poin2, int idPoin, int tukar) {
+		if (tukar == 0) {
+			if (keeper != shooter) {
+				skor1 = skor1 + 1;
+				poin1[idPoin] = "o";
+			}
+			else if (keeper == shooter) {
+				poin1[idPoin] = "x";
+			}
+			return skor1;
 		}
-		else if (keeper == shooter) {
-			poin1[idPoin] = "x";
+		else {
+			if (keeper != shooter) {
+				skor2 = skor2 + 1;
+				poin2[idPoin] = "o";
+			}
+			else if (keeper == shooter) {
+				poin1[idPoin] = "x";
+			}
+			return skor2;
 		}
-		return skor1;
 	}
 
 
@@ -406,56 +418,14 @@ class play {
 								keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 								System.out.println("\n\n");
 
-								switch (keeper) {
-									case 1:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 2:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 3:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 4:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 5:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 6:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 7:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 8:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									case 9:
-										statusInput = "benar";
-										skor1 = setSkor(keeper, shooter, skor1, poin1, idPoin);
-										getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
-										break;
-									default:
-										System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-										statusInput = "salah";
-										break;
+								if (keeper >=1 && keeper <=9) {
+									statusInput = "benar";
+									skor1 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
+									getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+								}
+								else {
+									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
+									statusInput = "salah";
 								}
 							} while (statusInput.equals("salah"));
 
