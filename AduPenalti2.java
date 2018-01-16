@@ -2,11 +2,35 @@ import java.util.*;
 import java.io.*;
 
 class play {
-	// static void getVisual() {
-	// }
-	static void getTampilanGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, int skor1, int skor2, String tim1, String tim2, int keeper) {
+	static void getPapanSkor(int skor1, int skor2, String tim1, String tim2) {
 		System.out.println("           +---------------------||-----------||---------------------+        ");
 		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
+	}
+
+	static void getTitikGawang(int skor1, int skor2, String tim1, String tim2) {
+		sc.nextLine();
+		getPapanSkor(skor1, skor2, tim1, tim2);
+		System.out.println("    _______|_____________________||___________||_____________________|_______ ");
+		System.out.println("   |  __________________________________*__________________________________  |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |    [1]                          [2]                          [3]    | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |    [4]                          [5]                          [6]    | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |                                                                     | |");
+		System.out.println("   | |    [7]                          [8]                          [9]    | |");
+		System.out.println("   | |                                                                     | |");
+	}
+
+	static void getTampilanGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, int skor1, int skor2, String tim1, String tim2, int keeper) {
+		getPapanSkor(skor1, skor2, tim1, tim2);
 
 		switch (keeper) {
 			case 1:
@@ -206,10 +230,11 @@ class play {
 		}
 	}
 
+	public static Scanner sc = new Scanner(System.in);
+	public static Console console = System.console();
+
 	// Main method
     public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		Console console = System.console();
 
 		int menu;
 		int statusMenu=0;
@@ -330,26 +355,7 @@ class play {
 
 					statusInput = "salah";
 					do { //while (giliran<10);
-						sc.nextLine();
-						System.out.println("           +---------------------||-----------||---------------------+        ");
-						System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-						System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-						System.out.println("   |  _____________________________________________________________________  |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |    [1]                          [2]                          [3]    | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |    [4]                          [5]                          [6]    | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |                                                                     | |");
-						System.out.println("   | |    [7]                          [8]                          [9]    | |");
-						System.out.println("   | |                                                                     | |");
+						getTitikGawang(skor1, skor2, tim1, tim2);
 
 						if (tukar == 0) {
 							do {
@@ -656,26 +662,7 @@ class play {
 							giliran = 0;
 
 							do {
-								sc.nextLine();
-								System.out.println("           +---------------------||-----------||---------------------+        ");
-								System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-								System.out.println("    _________________________________________________________________________ ");
-								System.out.println("   |  _____________________________________________________________________  |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |    [1]                          [2]                          [3]    | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |    [4]                          [5]                          [6]    | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |                                                                     | |");
-								System.out.println("   | |    [7]                          [8]                          [9]    | |");
-								System.out.println("   | |                                                                     | |");
+								getTitikGawang(skor1, skor2, tim1, tim2);
 
 								if (tukar == 0) {
 									do {
