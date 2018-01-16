@@ -2,6 +2,38 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static void getStatusGol(int keeper, int shooter, String[] poin1, String[] poin2, String tim1, String tim2) {
+		if (keeper != shooter) {
+			System.out.println();
+			System.out.println("                  _____    ____               _        _   _   _ ");
+			System.out.println("                 / ____|  / __ \\      /\\     | |      | | | | | |");
+			System.out.println("                | |  __  | |  | |    /  \\    | |      | | | | | |");
+			System.out.println("                | | |_ | | |  | |   / /\\ \\   | |      | | | | | |");
+			System.out.println("                | |__| | | |__| |  / ____ \\  | |____  |_| |_| |_|");
+			System.out.println("                 \\_____|  \\____/  /_/    \\_\\ |______| (_) (_) (_)");  
+			getPapanGol(poin1, poin2, tim1, tim2);
+		}
+		else {
+			System.out.println();
+			System.out.println("                 _____             __      __  ______   _   _   _ ");
+			System.out.println("                / ____|     /\\     \\ \\    / / |  ____| | | | | | |");
+			System.out.println("               | (___      /  \\     \\ \\  / /  | |__    | | | | | |");
+			System.out.println("                \\___ \\    / /\\ \\     \\ \\/ /   |  __|   | | | | | |");
+			System.out.println("                ____) |  / ____ \\     \\  /    | |____  |_| |_| |_|");
+			System.out.println("               |_____/  /_/    \\_\\     \\/     |______| (_) (_) (_)");
+			getPapanGol(poin1, poin2, tim1, tim2);
+		}
+	}
+
+	static void getPapanGol(String[] poin1, String[] poin2, String tim1, String tim2) {
+		System.out.println(); 
+		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+		System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
+		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+		System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
+		System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
+	}
+
 	static void getPapanSkor(int skor1, int skor2, String tim1, String tim2) {
 		System.out.println("           +---------------------||-----------||---------------------+        ");
 		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
@@ -11,7 +43,7 @@ class play {
 		sc.nextLine();
 		getPapanSkor(skor1, skor2, tim1, tim2);
 		System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-		System.out.println("   |  __________________________________*__________________________________  |");
+		System.out.println("   |  _____________________________________________________________________  |");
 		System.out.println("   | |                                                                     | |");
 		System.out.println("   | |                                                                     | |");
 		System.out.println("   | |    [1]                          [2]                          [3]    | |");
@@ -233,7 +265,8 @@ class play {
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
 
-	// Main method
+	// ------ Main method ------------------------------------------------------------------------------------
+
     public static void main(String[] args) {
 
 		int menu;
@@ -424,32 +457,8 @@ class play {
 								}
 							} while (statusInput.equals("salah"));
 
-							if (keeper != shooter) {
-								System.out.println("");
-								System.out.println("                  _____    ____               _        _   _   _ ");
-								System.out.println("                 / ____|  / __ \\      /\\     | |      | | | | | |");
-								System.out.println("                | |  __  | |  | |    /  \\    | |      | | | | | |");
-								System.out.println("                | | |_ | | |  | |   / /\\ \\   | |      | | | | | |");
-								System.out.println("                | |__| | | |__| |  / ____ \\  | |____  |_| |_| |_|");
-								System.out.println("                 \\_____|  \\____/  /_/    \\_\\ |______| (_) (_) (_)");  
-								System.out.println(""); 
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-							}
-							else if (keeper == shooter) {
-								System.out.println(""); 
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-							}
-							else {
-								System.out.println("");
-							}
+							getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
+
 							tukar = 1;
 							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
@@ -522,32 +531,8 @@ class play {
 								}
 							} while (statusInput.equals("salah"));
 
-							if (keeper != shooter) {
-								System.out.println("");
-								System.out.println("                  _____    ____               _        _   _   _ ");
-								System.out.println("                 / ____|  / __ \\      /\\     | |      | | | | | |");
-								System.out.println("                | |  __  | |  | |    /  \\    | |      | | | | | |");
-								System.out.println("                | | |_ | | |  | |   / /\\ \\   | |      | | | | | |");
-								System.out.println("                | |__| | | |__| |  / ____ \\  | |____  |_| |_| |_|");
-								System.out.println("                 \\_____|  \\____/  /_/    \\_\\ |______| (_) (_) (_)");  
-								System.out.println(""); 
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-							}
-							else if (keeper == shooter) {
-								System.out.println(""); 
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-								System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
-								System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-							}
-							else {
-								System.out.println("");
-							}
+							getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
+
 							tukar = 0;
 							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
@@ -730,32 +715,8 @@ class play {
 										}
 									} while (statusInput.equals("salah"));
 
-									if (keeper != shooter) {
-										System.out.println("");
-										System.out.println("                  _____    ____               _        _   _   _ ");
-										System.out.println("                 / ____|  / __ \\      /\\     | |      | | | | | |");
-										System.out.println("                | |  __  | |  | |    /  \\    | |      | | | | | |");
-										System.out.println("                | | |_ | | |  | |   / /\\ \\   | |      | | | | | |");
-										System.out.println("                | |__| | | |__| |  / ____ \\  | |____  |_| |_| |_|");
-										System.out.println("                 \\_____|  \\____/  /_/    \\_\\ |______| (_) (_) (_)");  
-										System.out.println(""); 
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim1 + " |  "+poin1[2]+"  |  "+poin1[4]+"  |  "+poin1[6]+"  |  "+poin1[8]+"  |  "+poin1[10]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim2 + " |  "+poin2[1]+"  |  "+poin2[3]+"  |  "+poin2[5]+"  |  "+poin2[7]+"  |  "+poin2[9]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-									}
-									else if (keeper == shooter) {
-										System.out.println(""); 
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim1 + " |  "+poin1[2]+"  |  "+poin1[4]+"  |  "+poin1[6]+"  |  "+poin1[8]+"  |  "+poin1[10]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim2 + " |  "+poin2[1]+"  |  "+poin2[3]+"  |  "+poin2[5]+"  |  "+poin2[7]+"  |  "+poin2[9]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-									}
-									else {
-										System.out.println("");
-									}
+									getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
+
 									tukar = 1;
 									t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
@@ -829,38 +790,8 @@ class play {
 										}
 									} while (statusInput.equals("salah"));
 
-									if (keeper != shooter) {
-										System.out.println("");
-										System.out.println("                  _____    ____               _        _   _   _ ");
-										System.out.println("                 / ____|  / __ \\      /\\     | |      | | | | | |");
-										System.out.println("                | |  __  | |  | |    /  \\    | |      | | | | | |");
-										System.out.println("                | | |_ | | |  | |   / /\\ \\   | |      | | | | | |");
-										System.out.println("                | |__| | | |__| |  / ____ \\  | |____  |_| |_| |_|");
-										System.out.println("                 \\_____|  \\____/  /_/    \\_\\ |______| (_) (_) (_)");  
-										System.out.println(""); 
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim1 + " |  "+poin1[2]+"  |  "+poin1[4]+"  |  "+poin1[6]+"  |  "+poin1[8]+"  |  "+poin1[10]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim2 + " |  "+poin2[1]+"  |  "+poin2[3]+"  |  "+poin2[5]+"  |  "+poin2[7]+"  |  "+poin2[9]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println(""); 
-										System.out.println("                               +-------+-------+");
-										System.out.println("                               |       |       |");
-										System.out.println("                               |   " + skor1 + "   |   " + skor2 + "   |");
-										System.out.println("                               |       |       |");
-										System.out.println("                               +-------+-------+"); 
-									}
-									else if (keeper == shooter) {
-										System.out.println(""); 
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim1 + " |  "+poin1[2]+"  |  "+poin1[4]+"  |  "+poin1[6]+"  |  "+poin1[8]+"  |  "+poin1[10]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-										System.out.println("              | " + tim2 + " |  "+poin2[1]+"  |  "+poin2[3]+"  |  "+poin2[5]+"  |  "+poin2[7]+"  |  "+poin2[9]+"  |");
-										System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-									}
-									else {
-										System.out.println("");
-									}
+									getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
+
 									tukar = 0;
 									t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
