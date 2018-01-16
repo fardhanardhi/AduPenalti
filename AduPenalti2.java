@@ -2,10 +2,8 @@ import java.util.*;
 import java.io.*;
 
 class play {
-	static void getVisual() {
-
-	}
-
+	// static void getVisual() {
+	// }
 	static void getTampilanGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, int skor1, int skor2, String tim1, String tim2, int keeper) {
 		System.out.println("           +---------------------||-----------||---------------------+        ");
 		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
@@ -202,21 +200,13 @@ class play {
 				poin2[idPoin] = "o";
 			}
 			else if (keeper == shooter) {
-				poin1[idPoin] = "x";
+				poin2[idPoin] = "x";
 			}
 			return skor2;
 		}
 	}
 
-
-
-
-
-
-
-
-
-
+	// Main method
     public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Console console = System.console();
@@ -411,7 +401,6 @@ class play {
 								}
 							} while (statusInput.equals("salah"));
 
-
 							do { // while (statusInput.equals("salah"))
 								System.out.println("\n\n[Player 1] \n[Player 2]<-"); 
 								sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
@@ -459,8 +448,6 @@ class play {
 							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 						}
-
-
 
 						else if (tukar == 1) {
 							do {
@@ -512,297 +499,20 @@ class play {
 								}
 							} while (statusInput.equals("salah"));
 
-
 							do {
 								System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
 								sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
 								keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 								System.out.println("\n\n");
 
-								switch (keeper) {
-									case 1:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"_____                       "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |      \\    \\                                                         | |");
-										System.out.println("   | |       \\  ( )                                                        | |");
-										System.out.println("   | |        \\___\\       __                                               | |");
-										System.out.println("   | |             \\     /                                                 | |");
-										System.out.println("   | |              \\___/                                                  | |");
-										System.out.println("   | |     "+t4+"         \\                  "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |                \\____,                                               | |");
-										System.out.println("   | |                     '                                               | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-										System.out.println("   | |                                                                     | |");
-										break;
-									case 2:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                 / \\                                 | |");
-										System.out.println("   | |                                / _ \\                                | |");
-										System.out.println("   | |                                \\( )/                                | |");
-										System.out.println("   | |                                  V                                  | |");
-										System.out.println("   | |                                  |                                  | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |                                 ( )                                 | |");
-										System.out.println("   | |                                 | |                                 | |");
-										System.out.println("   | |                                 | |                                 | |");
-										System.out.println("   | |                                 | |                                 | |");
-										System.out.println("   | |     "+t7+"                           /"+t8+"\\                           "+t9+"     | |");
-										System.out.println("   | |                                                                     | |");
-										break;
-									case 3:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                       _____"+t3+"     | |");
-										System.out.println("   | |                                                         /    /      | |");
-										System.out.println("   | |                                                        ( )  /       | |");
-										System.out.println("   | |                                               __       /___/        | |");
-										System.out.println("   | |                                                 \\     /             | |");
-										System.out.println("   | |                                                  \\___/              | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                  /         "+t6+"     | |");
-										System.out.println("   | |                                               ,____/                | |");
-										System.out.println("   | |                                               '                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-										System.out.println("   | |                                                                     | |");
-										break;
-									case 4:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |             _                                                       | |");
-										System.out.println("   | |            ( )                                                      | |");
-										System.out.println("   | |     "+t4+"________+.                  "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |              \\\\                                                     | |");
-										System.out.println("   | |               \\\\                                                    | |");
-										System.out.println("   | |               /\\'                                                   | |");
-										System.out.println("   | |              /  \\___,                                               | |");
-										System.out.println("   | |     "+t7+"        \\      '            "+t8+"                             "+t9+"    | |");
-										System.out.println("   | |              _\\                                                     | |");
-										break;
-									case 5:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                  _                                  | |");
-										System.out.println("   | |                                 ( )                                 | |");
-										System.out.println("   | |     "+t4+"                           ("+t5+")                           "+t6+"     | |");
-										System.out.println("   | |                                 /|\\                                 | |");
-										System.out.println("   | |                                  |                                  | |");
-										System.out.println("   | |                                  A                                  | |");
-										System.out.println("   | |                                 / \\                                 | |");
-										System.out.println("   | |     "+t7+"                          / "+t8+" \\                          "+t9+"     | |");
-										System.out.println("   | |                               /     \\                               | |");
-										break;
-									case 6:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                       _             | |");
-										System.out.println("   | |                                                      ( )            | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                  .+________"+t6+"     | |");
-										System.out.println("   | |                                                     //              | |");
-										System.out.println("   | |                                                    //               | |");
-										System.out.println("   | |                                                   '/\\               | |");
-										System.out.println("   | |                                               ,___/  \\              | |");
-										System.out.println("   | |     "+t7+"                            "+t8+"            '      /        "+t9+"     | |");
-										System.out.println("   | |                                                     /_              | |");
-										break;
-									case 7:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |          \\                                                          | |");
-										System.out.println("   | |           \\           /\\                                            | |");
-										System.out.println("   | |            \\         /  \\_                                          | |");
-										System.out.println("   | |     "+t7+"______(:)+======+______,    "+t8+"                            "+t9+"     | |");
-										System.out.println("   | |                                                                     | |");
-										break;
-									case 8:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                  _                                  | |");
-										System.out.println("   | |                                _( )_                                | |");
-										System.out.println("   | |                                \\   /                                | |");
-										System.out.println("   | |     "+t7+"                         __("+t8+")__                         "+t9+"     | |");
-										System.out.println("   | |                              _\\     /_                              | |");
-										break;
-									case 9:
-										statusInput = "benar";
-										if (keeper != shooter) {
-											skor2 = skor2 + 1;
-											poin2[idPoin] = "o";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										else if (keeper == shooter) {
-											poin2[idPoin] = "x";
-											System.out.println("           +---------------------||-----------||---------------------+        ");
-											System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-										}
-										System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-										System.out.println("   |  _____________________________________________________________________  |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-										System.out.println("   | |                                                                     | |");
-										System.out.println("   | |                                                        /            | |");
-										System.out.println("   | |                                            /\\         /             | |");
-										System.out.println("   | |                                          _/  \\       /              | |");
-										System.out.println("   | |     "+t7+"                            "+t8+"    ,______+======+(:)______"+t9+"     | |");
-										System.out.println("   | |                                                                     | |");
-										break;
-									default:
-										System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-										statusInput = "salah";
-										break;
+								if (keeper >=1 && keeper <=9) {
+									statusInput = "benar";
+									skor2 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
+									getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+								}
+								else {
+									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
+									statusInput = "salah";
 								}
 							} while (statusInput.equals("salah"));
 
@@ -836,12 +546,8 @@ class play {
 							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 						}
-						
 
-
-
-
-
+						// ganti giliran
 						giliran = giliran + 1;
 						idPoin = idPoin+1;
 
@@ -877,7 +583,6 @@ class play {
 						System.out.println("\t                            _.' '._");
 						System.out.println("\t                           `\"\"\"\"\"\"\"`\n");
 						System.out.println("                              "+tim1);
-
 					}
 					else if (skor1 < skor2) {
 						System.out.println("\t                           Full Time:");
@@ -919,7 +624,6 @@ class play {
 						poin1[10] = " ";
 						poin1[11] = " ";
 
-
 						poin2[1] = " ";
 						poin2[2] = " ";
 						poin2[3] = " ";
@@ -932,9 +636,7 @@ class play {
 						poin2[10] = " ";
 						poin2[11] = " ";
 
-
-
-							int sd = 0;
+						int sd = 0; // sudden death
 						do {
 							System.out.println("\t ____          _             _       HASIL SERI");
 							System.out.println("\t|  _ \\        | |           | |           SKOR:            ");
@@ -952,8 +654,6 @@ class play {
 
 							tukar = 1;
 							giliran = 0;
-
-
 
 							do {
 								sc.nextLine();
@@ -977,14 +677,12 @@ class play {
 								System.out.println("   | |    [7]                          [8]                          [9]    | |");
 								System.out.println("   | |                                                                     | |");
 
-
 								if (tukar == 0) {
 									do {
 										System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
 										sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
 										shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 										switch (shooter) {
-
 											case 1:
 												t1 = "*";
 												statusInput = "benar";
@@ -1028,297 +726,20 @@ class play {
 										}
 									} while (statusInput.equals("salah"));
 
-
 									do {
 										System.out.println("\n\n[Player 1] \n[Player 2]<-"); 
 										sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
 										keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 										System.out.println("\n\n");
 
-										switch (keeper) {
-											case 1:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"_____                       "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |      \\    \\                                                         | |");
-												System.out.println("   | |       \\  ( )                                                        | |");
-												System.out.println("   | |        \\___\\       __                                               | |");
-												System.out.println("   | |             \\     /                                                 | |");
-												System.out.println("   | |              \\___/                                                  | |");
-												System.out.println("   | |     "+t4+"         \\                  "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                \\____,                                               | |");
-												System.out.println("   | |                     '                                               | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 2:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                 / \\                                 | |");
-												System.out.println("   | |                                / _ \\                                | |");
-												System.out.println("   | |                                \\( )/                                | |");
-												System.out.println("   | |                                  V                                  | |");
-												System.out.println("   | |                                  |                                  | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                 ( )                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |     "+t7+"                           /"+t8+"\\                           "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 3:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                       _____"+t3+"     | |");
-												System.out.println("   | |                                                         /    /      | |");
-												System.out.println("   | |                                                        ( )  /       | |");
-												System.out.println("   | |                                               __       /___/        | |");
-												System.out.println("   | |                                                 \\     /             | |");
-												System.out.println("   | |                                                  \\___/              | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                  /         "+t6+"     | |");
-												System.out.println("   | |                                               ,____/                | |");
-												System.out.println("   | |                                               '                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 4:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |             _                                                       | |");
-												System.out.println("   | |            ( )                                                      | |");
-												System.out.println("   | |     "+t4+"________+.                  "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |              \\\\                                                     | |");
-												System.out.println("   | |               \\\\                                                    | |");
-												System.out.println("   | |               /\\'                                                   | |");
-												System.out.println("   | |              /  \\___,                                               | |");
-												System.out.println("   | |     "+t7+"        \\      '            "+t8+"                             "+t9+"    | |");
-												System.out.println("   | |              _\\                                                     | |");
-												break;
-											case 5:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                  _                                  | |");
-												System.out.println("   | |                                 ( )                                 | |");
-												System.out.println("   | |     "+t4+"                           ("+t5+")                           "+t6+"     | |");
-												System.out.println("   | |                                 /|\\                                 | |");
-												System.out.println("   | |                                  |                                  | |");
-												System.out.println("   | |                                  A                                  | |");
-												System.out.println("   | |                                 / \\                                 | |");
-												System.out.println("   | |     "+t7+"                          / "+t8+" \\                          "+t9+"     | |");
-												System.out.println("   | |                               /     \\                               | |");
-												break;
-											case 6:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                       _             | |");
-												System.out.println("   | |                                                      ( )            | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                  .+________"+t6+"     | |");
-												System.out.println("   | |                                                     //              | |");
-												System.out.println("   | |                                                    //               | |");
-												System.out.println("   | |                                                   '/\\               | |");
-												System.out.println("   | |                                               ,___/  \\              | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"            '      /        "+t9+"     | |");
-												System.out.println("   | |                                                     /_              | |");
-												break;
-											case 7:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |          \\                                                          | |");
-												System.out.println("   | |           \\           /\\                                            | |");
-												System.out.println("   | |            \\         /  \\_                                          | |");
-												System.out.println("   | |     "+t7+"______(:)+======+______,    "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 8:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                  _                                  | |");
-												System.out.println("   | |                                _( )_                                | |");
-												System.out.println("   | |                                \\   /                                | |");
-												System.out.println("   | |     "+t7+"                         __("+t8+")__                         "+t9+"     | |");
-												System.out.println("   | |                              _\\     /_                              | |");
-												break;
-											case 9:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor1 = skor1 + 1;
-													poin1[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin1[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                        /            | |");
-												System.out.println("   | |                                            /\\         /             | |");
-												System.out.println("   | |                                          _/  \\       /              | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"    ,______+======+(:)______"+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											default:
-												System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-												statusInput = "salah";
-												break;
+										if (keeper >=1 && keeper <=9) {
+											statusInput = "benar";
+											skor1 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
+											getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+										}
+										else {
+											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
+											statusInput = "salah";
 										}
 									} while (statusInput.equals("salah"));
 
@@ -1353,8 +774,6 @@ class play {
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 									System.out.println(idPoin);
 								}
-
-
 
 								else if (tukar == 1) {
 									do {
@@ -1406,297 +825,20 @@ class play {
 										}
 									} while (statusInput.equals("salah"));
 
-
 									do {
 										System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
 										sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
 										keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 										System.out.println("\n\n");
 
-										switch (keeper) {
-											case 1:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"_____                       "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |      \\    \\                                                         | |");
-												System.out.println("   | |       \\  ( )                                                        | |");
-												System.out.println("   | |        \\___\\       __                                               | |");
-												System.out.println("   | |             \\     /                                                 | |");
-												System.out.println("   | |              \\___/                                                  | |");
-												System.out.println("   | |     "+t4+"         \\                  "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                \\____,                                               | |");
-												System.out.println("   | |                     '                                               | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 2:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                 / \\                                 | |");
-												System.out.println("   | |                                / _ \\                                | |");
-												System.out.println("   | |                                \\( )/                                | |");
-												System.out.println("   | |                                  V                                  | |");
-												System.out.println("   | |                                  |                                  | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                 ( )                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |                                 | |                                 | |");
-												System.out.println("   | |     "+t7+"                           /"+t8+"\\                           "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 3:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                       _____"+t3+"     | |");
-												System.out.println("   | |                                                         /    /      | |");
-												System.out.println("   | |                                                        ( )  /       | |");
-												System.out.println("   | |                                               __       /___/        | |");
-												System.out.println("   | |                                                 \\     /             | |");
-												System.out.println("   | |                                                  \\___/              | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                  /         "+t6+"     | |");
-												System.out.println("   | |                                               ,____/                | |");
-												System.out.println("   | |                                               '                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 4:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |             _                                                       | |");
-												System.out.println("   | |            ( )                                                      | |");
-												System.out.println("   | |     "+t4+"________+.                  "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |              \\\\                                                     | |");
-												System.out.println("   | |               \\\\                                                    | |");
-												System.out.println("   | |               /\\'                                                   | |");
-												System.out.println("   | |              /  \\___,                                               | |");
-												System.out.println("   | |     "+t7+"        \\      '            "+t8+"                             "+t9+"    | |");
-												System.out.println("   | |              _\\                                                     | |");
-												break;
-											case 5:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                  _                                  | |");
-												System.out.println("   | |                                 ( )                                 | |");
-												System.out.println("   | |     "+t4+"                           ("+t5+")                           "+t6+"     | |");
-												System.out.println("   | |                                 /|\\                                 | |");
-												System.out.println("   | |                                  |                                  | |");
-												System.out.println("   | |                                  A                                  | |");
-												System.out.println("   | |                                 / \\                                 | |");
-												System.out.println("   | |     "+t7+"                          / "+t8+" \\                          "+t9+"     | |");
-												System.out.println("   | |                               /     \\                               | |");
-												break;
-											case 6:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                       _             | |");
-												System.out.println("   | |                                                      ( )            | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                  .+________"+t6+"     | |");
-												System.out.println("   | |                                                     //              | |");
-												System.out.println("   | |                                                    //               | |");
-												System.out.println("   | |                                                   '/\\               | |");
-												System.out.println("   | |                                               ,___/  \\              | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"            '      /        "+t9+"     | |");
-												System.out.println("   | |                                                     /_              | |");
-												break;
-											case 7:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |          \\                                                          | |");
-												System.out.println("   | |           \\           /\\                                            | |");
-												System.out.println("   | |            \\         /  \\_                                          | |");
-												System.out.println("   | |     "+t7+"______(:)+======+______,    "+t8+"                            "+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											case 8:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                  _                                  | |");
-												System.out.println("   | |                                _( )_                                | |");
-												System.out.println("   | |                                \\   /                                | |");
-												System.out.println("   | |     "+t7+"                         __("+t8+")__                         "+t9+"     | |");
-												System.out.println("   | |                              _\\     /_                              | |");
-												break;
-											case 9:
-												statusInput = "benar";
-												if (keeper != shooter) {
-													skor2 = skor2 + 1;
-													poin2[idPoin] = "o";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												else if (keeper == shooter) {
-													poin2[idPoin] = "x";
-													System.out.println("           +---------------------||-----------||---------------------+        ");
-													System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
-												}
-												System.out.println("    _______|_____________________||___________||_____________________|_______ ");
-												System.out.println("   |  _____________________________________________________________________  |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
-												System.out.println("   | |                                                                     | |");
-												System.out.println("   | |                                                        /            | |");
-												System.out.println("   | |                                            /\\         /             | |");
-												System.out.println("   | |                                          _/  \\       /              | |");
-												System.out.println("   | |     "+t7+"                            "+t8+"    ,______+======+(:)______"+t9+"     | |");
-												System.out.println("   | |                                                                     | |");
-												break;
-											default:
-												System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-												statusInput = "salah";
-												break;
+										if (keeper >=1 && keeper <=9) {
+											statusInput = "benar";
+											skor2 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
+											getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+										}
+										else {
+											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
+											statusInput = "salah";
 										}
 									} while (statusInput.equals("salah"));
 
@@ -1737,11 +879,7 @@ class play {
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 								}
 								
-
-
-
 								idPoin = idPoin + 1;
-
 
 								if ((giliran%2)!=0 && (skor1-skor2)==1) {
 									sd = 1;
@@ -1755,8 +893,6 @@ class play {
 							} while (giliran<10);
 
 						} while (sd==0);
-
-
 
 						System.out.println("\t                           Full Time:");
 						System.out.println("\t                           +---+---+        ");
@@ -1786,10 +922,6 @@ class play {
 						else if (skor1<skor2) {
 						System.out.println("                              "+tim2);
 						}
-
-
-
-
 					}
 				break;
 				case 2:
@@ -1827,8 +959,6 @@ class play {
 		} while (statusMenu!=0); 
 	}
 }
-
-
 
 // // Mengacak nilai
 // Random rn = new Random();
@@ -1893,22 +1023,3 @@ class play {
 			// System.out.println("   | |                                                                     | |");
 			// System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");			System.out.println("   | |                                                                     | |");
 			// System.out.println("   | |                                                                     | |");
-
-
-
-
-
-// System.out.println("Minimum eksekutor penendang adalah lima orang ");
-// System.out.println("dan untuk poin minimum adalah lima, ");
-// System.out.println("tetapi bisa kurang dan bisa lebih ");
-// System.out.println("tergantung pada skor. ");
-// System.out.println("");
-// System.out.println("Sebagai contoh jika sampai penendang ke empat ");
-// System.out.println("terdapat selisih dua angka terhadap tim lawan, ");
-// System.out.println("maka tim dengan skor paling tinggi ");
-// System.out.println("akan otomatis akan memenangkan pertandingan. ");
-// System.out.println("Apabila sampai pendendang ke lima tetap pada ");
-// System.out.println("posisi imbang maka akan dilakukan 'sudden death' ");
-// System.out.println("yang berarti setiap tim yang gagal ");
-// System.out.println("sedangkan tim lain berhasil memasukkan ");
-// System.out.println("maka bisa diambil pemenangnnya.");
