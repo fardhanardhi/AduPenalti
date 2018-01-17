@@ -2,6 +2,12 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static void resetTitik() {
+		for (int i=1; i <= 9; i++) {
+			t[i] = " ";
+		}
+	}
+
 	static int cekInput(int input) {
 		// mengecek exception handling
 		do {
@@ -387,7 +393,8 @@ class play {
 
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
-	public static String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
+	public static String t[] = {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "};
+	// public static String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
 	public static boolean suddenDeath = false;
 
 	// ------ Main method ------------------------------------------------------------------------------------
@@ -520,7 +527,7 @@ class play {
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
 									skor1 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
-									getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+									getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 								}
 								else {
 									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
@@ -531,7 +538,7 @@ class play {
 							getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
 
 							tukar = 1;
-							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
+							resetTitik();
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 						}
 
@@ -549,7 +556,7 @@ class play {
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
 									skor2 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
-									getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+									getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 								}
 								else {
 									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
@@ -560,7 +567,7 @@ class play {
 							getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
 
 							tukar = 0;
-							t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
+							resetTitik();
 							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 						}
 
@@ -624,7 +631,7 @@ class play {
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
 											skor1 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
-											getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+											getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 										}
 										else {
 											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
@@ -635,7 +642,7 @@ class play {
 									getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
 
 									tukar = 1;
-									t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
+									resetTitik();
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 									System.out.println(idPoin);
 								}
@@ -654,7 +661,7 @@ class play {
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
 											skor2 = setSkor(keeper, shooter, skor1, skor2, poin1, poin2, idPoin, tukar);
-											getTampilanGawang(t1, t2, t3, t4, t5, t6, t7, t8, t9, skor1, skor2, tim1, tim2, keeper);
+											getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 										}
 										else {
 											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
@@ -665,7 +672,7 @@ class play {
 									getStatusGol(keeper, shooter, poin1, poin2, tim1, tim2);
 
 									tukar = 0;
-									t1=" "; t2=" "; t3=" "; t4=" "; t5=" "; t6=" "; t7=" "; t8=" "; t9=" ";
+									resetTitik();
 									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
 								}
 								
