@@ -2,6 +2,48 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static int cekInput(int input) {
+		// mengecek exception handling
+		do {
+			System.out.print("\tMasukan pilihan: "); 
+		    while (!sc.hasNextInt()) {
+		        System.out.print("\tInput salah!!!, Ulangi: ");
+		        sc.next(); // wajib
+		    }
+		    input = sc.nextInt();
+		    return input;
+		} while (input <= ((input == 1) ? 1 : 0) && input >= ((input == 1) ? 19 : 2));
+	}
+
+	static void getPemenang(int skor1, int skor2, String tim1, String tim2) {
+		System.out.println("\t                           Full Time:");
+		System.out.println("\t                           +---+---+        ");
+		System.out.println("\t                           | "+skor1+" | "+skor2+" |");
+		System.out.println("\t                           +---+---+        ");
+		System.out.println("\t");
+		System.out.println("\t __          __  _____   _   _   _   _   ______   _____  ");
+		System.out.println("\t \\ \\        / / |_   _| | \\ | | | \\ | | |  ____| |  __ \\ ");
+		System.out.println("\t  \\ \\  /\\  / /    | |   |  \\| | |  \\| | | |__    | |__) |");
+		System.out.println("\t   \\ \\/  \\/ /     | |   | . ` | | . ` | |  __|   |  _  / ");
+		System.out.println("\t    \\  /\\  /     _| |_  | |\\  | | |\\  | | |____  | | \\ \\ ");
+		System.out.println("\t     \\/  \\/     |_____| |_| \\_| |_| \\_| |______| |_|  \\_\\");
+		System.out.println("\t");
+		System.out.println("\t                          ___________");
+		System.out.println("\t                         '._==_==_=_.'");
+		System.out.println("\t                         .-\\:      /-.");
+		System.out.println("\t                        | (|:.     |) |");
+		System.out.println("\t                         '-|:.     |-'");
+		System.out.println("\t                           \\::.    /");
+		System.out.println("\t                            '::. .'");
+		System.out.println("\t                              ) (");
+		System.out.println("\t                            _.' '._");
+		System.out.println("\t                           `\"\"\"\"\"\"\"`\n");
+		if (skor1 > skor2) 
+			System.out.println("                              "+tim1);
+		else
+			System.out.println("                              "+tim2);
+	}
+
 	static String setBola(int shooter) {
 		switch (shooter) {
 			case 1:
@@ -45,17 +87,56 @@ class play {
 	}
 
 	static int setShooter(int tukar) {
-		if (tukar == 0) {
-			System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
-		}
-		else {
-			System.out.println("\n\n[Player 1]\n[Player 2] <-"); 
-		}
+		if (tukar == 0)
+			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
+		else
+			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
 
 		char[] sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-		int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+		if (sembunyi.length > 0) {
+			int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+			return shooter;
+		}
+		else
+			return 0;
+	}
 
-		return shooter;
+	static int setKeeper(int tukar) {
+		if (tukar == 0)
+			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
+		else
+			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
+
+		char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tangkapan: ");
+		if (sembunyi.length > 0) {
+			int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+			return keeper;
+		}
+		else
+			return 0;
+	}
+
+	static int setSkor(int keeper, int shooter, int skor1, int skor2, String[] poin1, String[] poin2, int idPoin, int tukar) {
+		if (tukar == 0) {
+			if (keeper != shooter) {
+				skor1 = skor1 + 1;
+				poin1[idPoin] = "o";
+			}
+			else if (keeper == shooter) {
+				poin1[idPoin] = "x";
+			}
+			return skor1;
+		}
+		else {
+			if (keeper != shooter) {
+				skor2 = skor2 + 1;
+				poin2[idPoin] = "o";
+			}
+			else if (keeper == shooter) {
+				poin2[idPoin] = "x";
+			}
+			return skor2;
+		}
 	}
 
 	static void getStatusGol(int keeper, int shooter, String[] poin1, String[] poin2, String tim1, String tim2) {
@@ -92,7 +173,7 @@ class play {
 		}
 		else {
 			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
-			System.out.println("              * " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
+			System.out.println("              | " + tim1 + " |  "+poin1[1]+"  |  "+poin1[3]+"  |  "+poin1[5]+"  |  "+poin1[7]+"  |  "+poin1[9]+"  |");
 			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
 			System.out.println("              | " + tim2 + " |  "+poin2[2]+"  |  "+poin2[4]+"  |  "+poin2[6]+"  |  "+poin2[8]+"  |  "+poin2[10]+"  |");
 			System.out.println("              +---------------------+-----+-----+-----+-----+-----+");
@@ -304,29 +385,6 @@ class play {
 		}
 	}
 
-	static int setSkor(int keeper, int shooter, int skor1, int skor2, String[] poin1, String[] poin2, int idPoin, int tukar) {
-		if (tukar == 0) {
-			if (keeper != shooter) {
-				skor1 = skor1 + 1;
-				poin1[idPoin] = "o";
-			}
-			else if (keeper == shooter) {
-				poin1[idPoin] = "x";
-			}
-			return skor1;
-		}
-		else {
-			if (keeper != shooter) {
-				skor2 = skor2 + 1;
-				poin2[idPoin] = "o";
-			}
-			else if (keeper == shooter) {
-				poin2[idPoin] = "x";
-			}
-			return skor2;
-		}
-	}
-
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
 	public static String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
@@ -336,8 +394,8 @@ class play {
 
     public static void main(String[] args) {
 
-		int menu;
-		int statusMenu=0;
+		int menu = 5;
+		int statusMenu = 0;
 		do { // while (statusMenu!=0);
 			System.out.println("\n     ___              _                                     _  _    _   ___ ");
 			System.out.println("    |  _|            | |                                   | || |  (_) |_  |");
@@ -359,15 +417,7 @@ class play {
 			System.out.println("\t         \\_ (*)                             ` << |xx|XXXXX|    ");
 			System.out.println("\t^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
-			// mengecek exception handling
-			do {
-				System.out.print("\tMasukan pilihan: "); 
-			    while (!sc.hasNextInt()) {
-			        System.out.print("\tInput salah!!!, Ulangi");
-			        sc.next(); // wajib
-			    }
-			    menu = sc.nextInt();
-			} while (menu <= 0 && menu >= 2);
+			menu = cekInput(menu);
 
 			System.out.println();
 
@@ -377,7 +427,7 @@ class play {
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
-					int giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1, idTim2, idPoin=1;
+					int giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
 					char [] sembunyi;
 
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
@@ -402,28 +452,32 @@ class play {
 					System.out.println("\t| 17 | Semen Padang FC     | Padang      | Kabau Sirah         |");
 					System.out.println("\t| 18 | Sriwijaya FC        | Palembang   | Laskar Wong Kito    |");
 					System.out.println("\t| 19 | Persebaya FC        | Surabaya    | Bonek               |");
-					System.out.println("\t+----+---------------------+-------------+---------------------+\n");
+					System.out.println("\t+----+---------------------+-------------+---------------------+");
 
 					do {
-						System.out.print("\n[Player 1] <-\n[Player 2]\n--------------------\n Pilih Nomor Tim: "); idTim1 = sc.nextInt();
+						System.out.print("\n\t[Player 1] <-\n\t[Player 2]\n\t--------------------\n"); 
+						idTim1 = cekInput(idTim1);
 						if (idTim1>=1 && idTim1<=19) {
 							statusInput = "benar";
 						}
 						else {
-							System.out.print("Input salah, Ulangi!: ");
+							System.out.print("\n\tInput salah, Ulangi!");
 							statusInput = "salah";
 						}
 					} while (statusInput=="salah");
+
 					do {
-						System.out.print("\n[Player 1]\n[Player 2] <-\n--------------------\n Pilih Nomor Tim: "); idTim2 = sc.nextInt();
+						System.out.print("\n\t[Player 1]\n\t[Player 2] <-\n\t--------------------\n");
+						idTim2 = cekInput(idTim2);
 						if (idTim2>=1 && idTim2<=19) {
 							statusInput = "benar";
 						}
 						else {
-							System.out.print("Input salah, Ulangi!");
+							System.out.print("\n\tInput salah, Ulangi!");
 							statusInput = "salah";
 						}
 					} while (statusInput=="salah");
+
 					System.out.println("\t                                                    ,/)");
 					System.out.println("\t                                                    |_|    ");
 					System.out.println("\t        _        _        _        _        _       ].[    ");
@@ -446,11 +500,10 @@ class play {
 					System.out.println("\t           | | | | | || |_| || || (_| || ||_||_||_|");
 					System.out.println("\t           |_| |_| |_| \\__,_||_| \\__,_||_|(_)(_)(_)\n");
 					System.out.println("\t                           [ENTER]");
-                                         
-					sc.nextLine();
+					System.out.print("\t                              ");sc.nextLine();
+
 					tim1 = timList[idTim1];
 					tim2 = timList[idTim2];
-					System.out.println("\n\n");
 
 					statusInput = "salah";
 					do { //while (giliran<10);
@@ -464,9 +517,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
-								System.out.println("\n\n[Player 1] \n[Player 2]<-"); 
-								sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
-								keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+								keeper = setKeeper(tukar);
 								System.out.println("\n\n");
 
 								if (keeper >=1 && keeper <=9) {
@@ -495,9 +546,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do {
-								System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
-								sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
-								keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+								keeper = setKeeper(tukar);
 								System.out.println("\n\n");
 
 								if (keeper >=1 && keeper <=9) {
@@ -530,55 +579,8 @@ class play {
 						}
 					} while (giliran<10);
 
-					if (skor1 > skor2) {
-						System.out.println("\t                           Full Time:");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t                           | "+skor1+" | "+skor2+" |");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t");
-						System.out.println("\t __          __  _____   _   _   _   _   ______   _____  ");
-						System.out.println("\t \\ \\        / / |_   _| | \\ | | | \\ | | |  ____| |  __ \\ ");
-						System.out.println("\t  \\ \\  /\\  / /    | |   |  \\| | |  \\| | | |__    | |__) |");
-						System.out.println("\t   \\ \\/  \\/ /     | |   | . ` | | . ` | |  __|   |  _  / ");
-						System.out.println("\t    \\  /\\  /     _| |_  | |\\  | | |\\  | | |____  | | \\ \\ ");
-						System.out.println("\t     \\/  \\/     |_____| |_| \\_| |_| \\_| |______| |_|  \\_\\");
-						System.out.println("\t");
-						System.out.println("\t                          ___________");
-						System.out.println("\t                         '._==_==_=_.'");
-						System.out.println("\t                         .-\\:      /-.");
-						System.out.println("\t                        | (|:.     |) |");
-						System.out.println("\t                         '-|:.     |-'");
-						System.out.println("\t                           \\::.    /");
-						System.out.println("\t                            '::. .'");
-						System.out.println("\t                              ) (");
-						System.out.println("\t                            _.' '._");
-						System.out.println("\t                           `\"\"\"\"\"\"\"`\n");
-						System.out.println("                              "+tim1);
-					}
-					else if (skor1 < skor2) {
-						System.out.println("\t                           Full Time:");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t                           | "+skor1+" | "+skor2+" |");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t");
-						System.out.println("\t __          __  _____   _   _   _   _   ______   _____  ");
-						System.out.println("\t \\ \\        / / |_   _| | \\ | | | \\ | | |  ____| |  __ \\ ");
-						System.out.println("\t  \\ \\  /\\  / /    | |   |  \\| | |  \\| | | |__    | |__) |");
-						System.out.println("\t   \\ \\/  \\/ /     | |   | . ` | | . ` | |  __|   |  _  / ");
-						System.out.println("\t    \\  /\\  /     _| |_  | |\\  | | |\\  | | |____  | | \\ \\ ");
-						System.out.println("\t     \\/  \\/     |_____| |_| \\_| |_| \\_| |______| |_|  \\_\\");
-						System.out.println("\t");
-						System.out.println("\t                          ___________");
-						System.out.println("\t                         '._==_==_=_.'");
-						System.out.println("\t                         .-\\:      /-.");
-						System.out.println("\t                        | (|:.     |) |");
-						System.out.println("\t                         '-|:.     |-'");
-						System.out.println("\t                           \\::.    /");
-						System.out.println("\t                            '::. .'");
-						System.out.println("\t                              ) (");
-						System.out.println("\t                            _.' '._");
-						System.out.println("\t                           `\"\"\"\"\"\"\"`\n");
-						System.out.println("                              "+tim2);
+					if (skor1 > skor2 || skor1 < skor2) {
+						getPemenang(skor1, skor2, tim1, tim2);
 					}
 					else {
 						suddenDeath = true;
@@ -638,9 +640,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										System.out.println("\n\n[Player 1] \n[Player 2]<-"); 
-										sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
-										keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+										keeper = setKeeper(tukar);
 										System.out.println("\n\n");
 
 										if (keeper >=1 && keeper <=9) {
@@ -670,9 +670,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										System.out.println("\n\n[Player 1] <-\n[Player 2]"); 
-										sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
-										keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+										keeper = setKeeper(tukar);
 										System.out.println("\n\n");
 
 										if (keeper >=1 && keeper <=9) {
@@ -708,33 +706,8 @@ class play {
 
 						} while (sd==0);
 
-						System.out.println("\t                           Full Time:");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t                           | "+skor1+" | "+skor2+" |");
-						System.out.println("\t                           +---+---+        ");
-						System.out.println("\t");
-						System.out.println("\t __          __  _____   _   _   _   _   ______   _____  ");
-						System.out.println("\t \\ \\        / / |_   _| | \\ | | | \\ | | |  ____| |  __ \\ ");
-						System.out.println("\t  \\ \\  /\\  / /    | |   |  \\| | |  \\| | | |__    | |__) |");
-						System.out.println("\t   \\ \\/  \\/ /     | |   | . ` | | . ` | |  __|   |  _  / ");
-						System.out.println("\t    \\  /\\  /     _| |_  | |\\  | | |\\  | | |____  | | \\ \\ ");
-						System.out.println("\t     \\/  \\/     |_____| |_| \\_| |_| \\_| |______| |_|  \\_\\");
-						System.out.println("\t");
-						System.out.println("\t                          ___________");
-						System.out.println("\t                         '._==_==_=_.'");
-						System.out.println("\t                         .-\\:      /-.");
-						System.out.println("\t                        | (|:.     |) |");
-						System.out.println("\t                         '-|:.     |-'");
-						System.out.println("\t                           \\::.    /");
-						System.out.println("\t                            '::. .'");
-						System.out.println("\t                              ) (");
-						System.out.println("\t                            _.' '._");
-						System.out.println("\t                           `\"\"\"\"\"\"\"`\n");
-						if (skor1>skor2) {
-						System.out.println("                              "+tim1);
-						}
-						else if (skor1<skor2) {
-						System.out.println("                              "+tim2);
+						if (skor1 > skor2 || skor1 < skor2) {
+							getPemenang(skor1, skor2, tim1, tim2);
 						}
 					}
 				break;
