@@ -457,9 +457,8 @@ class play {
 					do {
 						System.out.print("\n\t[Player 1] <-\n\t[Player 2]\n\t--------------------\n"); 
 						idTim1 = cekInput(idTim1);
-						if (idTim1>=1 && idTim1<=19) {
+						if (idTim1>=1 && idTim1<=19)
 							statusInput = "benar";
-						}
 						else {
 							System.out.print("\n\tInput salah, Ulangi!");
 							statusInput = "salah";
@@ -469,9 +468,8 @@ class play {
 					do {
 						System.out.print("\n\t[Player 1]\n\t[Player 2] <-\n\t--------------------\n");
 						idTim2 = cekInput(idTim2);
-						if (idTim2>=1 && idTim2<=19) {
+						if (idTim2>=1 && idTim2<=19)
 							statusInput = "benar";
-						}
 						else {
 							System.out.print("\n\tInput salah, Ulangi!");
 							statusInput = "salah";
@@ -513,7 +511,6 @@ class play {
 							do {
 								shooter = setShooter(tukar);
 								statusInput = setBola(shooter);
-
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
@@ -584,32 +581,6 @@ class play {
 					}
 					else {
 						suddenDeath = true;
-						idPoin = 1;
-						System.out.println(idPoin);
-						poin1[1] = " ";
-						poin1[2] = " ";
-						poin1[3] = " ";
-						poin1[4] = " ";
-						poin1[5] = " ";
-						poin1[6] = " ";
-						poin1[7] = " ";
-						poin1[8] = " ";
-						poin1[9] = " ";
-						poin1[10] = " ";
-						poin1[11] = " ";
-
-						poin2[1] = " ";
-						poin2[2] = " ";
-						poin2[3] = " ";
-						poin2[4] = " ";
-						poin2[5] = " ";
-						poin2[6] = " ";
-						poin2[7] = " ";
-						poin2[8] = " ";
-						poin2[9] = " ";
-						poin2[10] = " ";
-						poin2[11] = " ";
-
 						int sd = 0; // mengulang sudden death
 						do {
 							System.out.println("\t ____          _             _       HASIL SERI");
@@ -625,7 +596,14 @@ class play {
 							System.out.println("\t| |                                                        ");
 							System.out.println("\t|_|                                                        ");
 							System.out.println("\t                         [ENTER]");
+							System.out.print("\t                             ");sc.nextLine();
 
+							for (int i=1; i<=10; i++) {
+								poin1[i] = " ";
+								poin2[i] = " ";
+							}
+
+							idPoin = 1;
 							tukar = 1;
 							giliran = 0;
 
