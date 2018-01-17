@@ -51,38 +51,14 @@ class play {
 	}
 
 	static String setBola(int shooter) {
-		switch (shooter) {
-			case 1:
-				t1 = "*";
-				break;
-			case 2:
-				t2 = "*";
-				break;
-			case 3:
-				t3 = "*";
-				break;
-			case 4:
-				t4 = "*";
-				break;
-			case 5:
-				t5 = "*";
-				break;
-			case 6:
-				t6 = "*";
-				break;
-			case 7:
-				t7 = "*";
-				break;
-			case 8:
-				t8 = "*";
-				break;
-			case 9:
-				t9 = "*";
-				break;
-			default:
-				System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-				break;
+		if (shooter <=9 && shooter >=1) {
+			for (int i = 1; i <= 9; i++) {
+				if (shooter == i)
+					t[i] = "*";
+			}
 		}
+		else
+			System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
 
 		if (shooter >= 1 && shooter <= 9) {
 			return "benar";
@@ -213,7 +189,7 @@ class play {
 		System.out.println("   | |                                                                     | |");
 	}
 
-	static void getTampilanGawang(String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, int skor1, int skor2, String tim1, String tim2, int keeper) {
+	static void getTampilanGawang(String[] t, int skor1, int skor2, String tim1, String tim2, int keeper) {
 		getPapanSkor(skor1, skor2, tim1, tim2);
 
 		switch (keeper) {
@@ -222,18 +198,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"_____                       "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"_____                       "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |      \\    \\                                                         | |");
 				System.out.println("   | |       \\  ( )                                                        | |");
 				System.out.println("   | |        \\___\\       __                                               | |");
 				System.out.println("   | |             \\     /                                                 | |");
 				System.out.println("   | |              \\___/                                                  | |");
-				System.out.println("   | |     "+t4+"         \\                  "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"         \\                  "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |                \\____,                                               | |");
 				System.out.println("   | |                     '                                               | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                            "+t[8]+"                            "+t[9]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				break;
 			case 2:
@@ -241,18 +217,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                 / \\                                 | |");
 				System.out.println("   | |                                / _ \\                                | |");
 				System.out.println("   | |                                \\( )/                                | |");
 				System.out.println("   | |                                  V                                  | |");
 				System.out.println("   | |                                  |                                  | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |                                 ( )                                 | |");
 				System.out.println("   | |                                 | |                                 | |");
 				System.out.println("   | |                                 | |                                 | |");
 				System.out.println("   | |                                 | |                                 | |");
-				System.out.println("   | |     "+t7+"                           /"+t8+"\\                           "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                           /"+t[8]+"\\                           "+t[9]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				break;
 			case 3:
@@ -260,18 +236,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                       _____"+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                       _____"+t[3]+"     | |");
 				System.out.println("   | |                                                         /    /      | |");
 				System.out.println("   | |                                                        ( )  /       | |");
 				System.out.println("   | |                                               __       /___/        | |");
 				System.out.println("   | |                                                 \\     /             | |");
 				System.out.println("   | |                                                  \\___/              | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                  /         "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                  /         "+t[6]+"     | |");
 				System.out.println("   | |                                               ,____/                | |");
 				System.out.println("   | |                                               '                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t7+"                            "+t8+"                            "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                            "+t[8]+"                            "+t[9]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				break;
 			case 4:
@@ -279,18 +255,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |             _                                                       | |");
 				System.out.println("   | |            ( )                                                      | |");
-				System.out.println("   | |     "+t4+"________+.                  "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"________+.                  "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |              \\\\                                                     | |");
 				System.out.println("   | |               \\\\                                                    | |");
 				System.out.println("   | |               /\\'                                                   | |");
 				System.out.println("   | |              /  \\___,                                               | |");
-				System.out.println("   | |     "+t7+"        \\      '            "+t8+"                             "+t9+"    | |");
+				System.out.println("   | |     "+t[7]+"        \\      '            "+t[8]+"                             "+t[9]+"    | |");
 				System.out.println("   | |              _\\                                                     | |");
 				break;
 			case 5:
@@ -298,18 +274,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                  _                                  | |");
 				System.out.println("   | |                                 ( )                                 | |");
-				System.out.println("   | |     "+t4+"                           ("+t5+")                           "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                           ("+t[5]+")                           "+t[6]+"     | |");
 				System.out.println("   | |                                 /|\\                                 | |");
 				System.out.println("   | |                                  |                                  | |");
 				System.out.println("   | |                                  A                                  | |");
 				System.out.println("   | |                                 / \\                                 | |");
-				System.out.println("   | |     "+t7+"                          / "+t8+" \\                          "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                          / "+t[8]+" \\                          "+t[9]+"     | |");
 				System.out.println("   | |                               /     \\                               | |");
 				break;
 			case 6:
@@ -317,18 +293,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                       _             | |");
 				System.out.println("   | |                                                      ( )            | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                  .+________"+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                  .+________"+t[6]+"     | |");
 				System.out.println("   | |                                                     //              | |");
 				System.out.println("   | |                                                    //               | |");
 				System.out.println("   | |                                                   '/\\               | |");
 				System.out.println("   | |                                               ,___/  \\              | |");
-				System.out.println("   | |     "+t7+"                            "+t8+"            '      /        "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                            "+t[8]+"            '      /        "+t[9]+"     | |");
 				System.out.println("   | |                                                     /_              | |");
 				break;
 			case 7:
@@ -336,18 +312,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |          \\                                                          | |");
 				System.out.println("   | |           \\           /\\                                            | |");
 				System.out.println("   | |            \\         /  \\_                                          | |");
-				System.out.println("   | |     "+t7+"______(:)+======+______,    "+t8+"                            "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"______(:)+======+______,    "+t[8]+"                            "+t[9]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				break;
 			case 8:
@@ -355,18 +331,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                  _                                  | |");
 				System.out.println("   | |                                _( )_                                | |");
 				System.out.println("   | |                                \\   /                                | |");
-				System.out.println("   | |     "+t7+"                         __("+t8+")__                         "+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                         __("+t[8]+")__                         "+t[9]+"     | |");
 				System.out.println("   | |                              _\\     /_                              | |");
 				break;
 			case 9:
@@ -374,18 +350,18 @@ class play {
 				System.out.println("   |  _____________________________________________________________________  |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t1+"                            "+t2+"                            "+t3+"     | |");
+				System.out.println("   | |     "+t[1]+"                            "+t[2]+"                            "+t[3]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                                     | |");
-				System.out.println("   | |     "+t4+"                            "+t5+"                            "+t6+"     | |");
+				System.out.println("   | |     "+t[4]+"                            "+t[5]+"                            "+t[6]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				System.out.println("   | |                                                        /            | |");
 				System.out.println("   | |                                            /\\         /             | |");
 				System.out.println("   | |                                          _/  \\       /              | |");
-				System.out.println("   | |     "+t7+"                            "+t8+"    ,______+======+(:)______"+t9+"     | |");
+				System.out.println("   | |     "+t[7]+"                            "+t[8]+"    ,______+======+(:)______"+t[9]+"     | |");
 				System.out.println("   | |                                                                     | |");
 				break;
 		}
