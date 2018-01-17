@@ -2,6 +2,11 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static void clearScreen() {  
+		System.out.print("\033[H\033[2J");  
+		System.out.flush();  
+	}
+
 	static void resetTitik() {
 		for (int i=1; i <= 9; i++) {
 			t[i] = " ";
@@ -370,7 +375,6 @@ class play {
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
 	public static String t[] = {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "};
-	// public static String t1=" ", t2=" ", t3=" ", t4=" ", t5=" ", t6=" ", t7=" ", t8=" ", t9=" ";
 	public static boolean suddenDeath = false;
 
 	// ------ Main method ------------------------------------------------------------------------------------
@@ -380,6 +384,7 @@ class play {
 		int menu = 5;
 		int statusMenu = 0;
 		do { // while (statusMenu!=0);
+			clearScreen();
 			System.out.println("\n     ___              _                                     _  _    _   ___ ");
 			System.out.println("    |  _|            | |                                   | || |  (_) |_  |");
 			System.out.println("    | |     __ _   __| | _   _   _ __    ___  _ __    __ _ | || |_  _    | |");
@@ -410,9 +415,18 @@ class play {
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
-					int giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
+					int multiplayer = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
 					char [] sembunyi;
 
+					clearScreen();
+					System.out.println("\t\t\t\t+--------------+---+");
+					System.out.println("\t\t\t\t| Singleplayer | 1 |");
+					System.out.println("\t\t\t\t+--------------+---+");
+					System.out.println("\t\t\t\t| Multiplayer  | 2 |");
+					System.out.println("\t\t\t\t+--------------+---+");
+					System.out.print("\t\t"); multiplayer = sc.nextInt();
+
+					clearScreen();
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 					System.out.println("\t| NO | NAMA TIM            | LOKASI      | JULUKAN             |");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
@@ -459,6 +473,8 @@ class play {
 						}
 					} while (statusInput=="salah");
 
+					sc.nextLine();
+					clearScreen();
 					System.out.println("\t                                                    ,/)");
 					System.out.println("\t                                                    |_|    ");
 					System.out.println("\t        _        _        _        _        _       ].[    ");
@@ -489,7 +505,7 @@ class play {
 					statusInput = "salah";
 					do { //while (giliran<10);
 						getTitikGawang(skor1, skor2, tim1, tim2);
-
+						
 						if (tukar == 0) {
 							do {
 								shooter = setShooter(tukar);
@@ -673,28 +689,31 @@ class play {
 					}
 				break;
 				case 2:
-					System.out.println("+---------+");
-					System.out.println("| BANTUAN |");
-					System.out.println("+---------+\n");
-					System.out.println("Minimum eksekutor penendang adalah lima orang ");
-					System.out.println("dan untuk poin minimum adalah lima, ");
-					System.out.println("tetapi bisa kurang dan bisa lebih ");
-					System.out.println("tergantung pada skor. ");
-					System.out.println("");
-					System.out.println("Sebagai contoh jika sampai penendang ke empat ");
-					System.out.println("terdapat selisih dua angka terhadap tim lawan, ");
-					System.out.println("maka tim dengan skor paling tinggi ");
-					System.out.println("akan otomatis akan memenangkan pertandingan. ");
-					System.out.println("Apabila sampai pendendang ke lima tetap pada ");
-					System.out.println("posisi imbang maka akan dilakukan 'sudden death' ");
-					System.out.println("yang berarti setiap tim yang gagal ");
-					System.out.println("sedangkan tim lain berhasil memasukkan ");
-					System.out.println("maka bisa diambil pemenangnnya.\n");
+					clearScreen();
+					System.out.println("\t\t\t\t+---------+");
+					System.out.println("\t\t\t\t| BANTUAN |");
+					System.out.println("\t\t\t\t+---------+\n");
+					System.out.println("\t\tMinimum eksekutor penendang adalah lima orang ");
+					System.out.println("\t\tdan untuk poin minimum adalah lima, ");
+					System.out.println("\t\ttetapi bisa kurang dan bisa lebih ");
+					System.out.println("\t\ttergantung pada skor. ");
+					System.out.println("\t\t");
+					System.out.println("\t\tSebagai contoh jika sampai penendang ke empat ");
+					System.out.println("\t\tterdapat selisih dua angka terhadap tim lawan, ");
+					System.out.println("\t\tmaka tim dengan skor paling tinggi ");
+					System.out.println("\t\takan otomatis akan memenangkan pertandingan. ");
+					System.out.println("\t\tApabila sampai pendendang ke lima tetap pada ");
+					System.out.println("\t\tposisi imbang maka akan dilakukan 'sudden death' ");
+					System.out.println("\t\tyang berarti setiap tim yang gagal ");
+					System.out.println("\t\tsedangkan tim lain berhasil memasukkan ");
+					System.out.println("\t\tmaka bisa diambil pemenangnnya.\n");
 					statusMenu = 1;
-					System.out.print("Tekan [ENTER]");
+					System.out.print("\t\t[ENTER]");
+					sc.nextLine();
 					sc.nextLine();
 				break;
 				case 0:
+					clearScreen();
 					System.exit(0);
 					statusMenu = 0;
 				break;
