@@ -2,6 +2,34 @@ import java.util.*;
 import java.io.*;
 
 class play {
+	static void loader() throws Exception {
+		int c=0;
+		boolean s=false;
+		System.out.println();
+		for (int x = 0; x < 50; x++) {
+			System.out.print("   [");
+			if (c==0)
+				s=false;
+			else if (c==6)
+				s=true;
+
+			if (s==false)
+				c++;
+			else
+				c--;
+
+			for (int i=0; i<7; i++) {
+				if (i==c)
+					System.out.print("*");
+				else
+					System.out.print("-");
+			}
+			System.out.print("] >> Komputer memprediksi tangkapan");
+			Thread.sleep(85);
+			System.out.print("\r");
+		}
+	}
+
 	static void clearScreen() {  
 		System.out.print("\033[H\033[2J");  
 		System.out.flush();  
@@ -91,21 +119,29 @@ class play {
 			return 0;
 	}
 
-	static int setKeeper(int tukar, int skor1, int skor2, String tim1, String tim2) {
+	static int setKeeper(int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
 		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0)
 			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
 		else
 			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
 
-		char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tangkapan: ");
-		if (sembunyi.length > 0) {
+		if (tukar == 0 && player == 2) {
+			loader();
 			clearScreen();
-			int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+			int keeper = rn.nextInt(9) + 1;
 			return keeper;
 		}
-		else
-			return 0;
+		else {
+			char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tendangan: ");
+			if (sembunyi.length > 0) {
+				clearScreen();
+				int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+				return keeper;
+			}
+			else
+				return 0;
+		}
 	}
 
 	static int setSkor(int keeper, int shooter, int skor1, int skor2, String[] poin1, String[] poin2, int idPoin, int tukar) {
@@ -380,17 +416,19 @@ class play {
 
 	public static Scanner sc = new Scanner(System.in);
 	public static Console console = System.console();
+	public static Random rn = new Random();
 	public static String t[] = {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "};
 	public static boolean suddenDeath = false;
 
 	// ------ Main method ------------------------------------------------------------------------------------
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 		int menu = 5;
 		int statusMenu = 0;
 		do { // while (statusMenu!=0);
 			clearScreen();
+
 			System.out.print("\n\n\n\n\n");
 			System.out.println("     ___              _                                     _  _    _   ___ ");
 			System.out.println("    |  _|            | |                                   | || |  (_) |_  |");
@@ -422,7 +460,7 @@ class play {
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
-					int multiplayer = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
+					int player = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
 					char [] sembunyi;
 
 					clearScreen();
@@ -432,7 +470,7 @@ class play {
 					System.out.println("\t\t\t\t+--------------+---+");
 					System.out.println("\t\t\t\t| Multiplayer  | 2 |");
 					System.out.println("\t\t\t\t+--------------+---+");
-					System.out.print("\t\t\t\tMasukan pilihan: "); multiplayer = sc.nextInt();
+					System.out.print("\t\t\t\tMasukan pilihan: "); player = sc.nextInt();
 
 					clearScreen();
 					System.out.print("\n\n\n");
@@ -526,7 +564,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
-								keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -556,7 +594,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do {
-								keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -634,7 +672,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
@@ -664,7 +702,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
