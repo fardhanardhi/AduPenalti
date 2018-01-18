@@ -27,6 +27,7 @@ class play {
 	}
 
 	static void getPemenang(int skor1, int skor2, String tim1, String tim2) {
+		System.out.print("\n\n\n");
 		System.out.println("\t                           Full Time:");
 		System.out.println("\t                           +---+---+        ");
 		System.out.println("\t                           | "+skor1+" | "+skor2+" |");
@@ -73,7 +74,8 @@ class play {
 		}
 	}
 
-	static int setShooter(int tukar) {
+	static int setShooter(int tukar, int skor1, int skor2, String tim1, String tim2) {
+		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0)
 			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
 		else
@@ -81,6 +83,7 @@ class play {
 
 		char[] sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
 		if (sembunyi.length > 0) {
+			clearScreen();
 			int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 			return shooter;
 		}
@@ -88,7 +91,8 @@ class play {
 			return 0;
 	}
 
-	static int setKeeper(int tukar) {
+	static int setKeeper(int tukar, int skor1, int skor2, String tim1, String tim2) {
+		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0)
 			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
 		else
@@ -96,6 +100,7 @@ class play {
 
 		char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tangkapan: ");
 		if (sembunyi.length > 0) {
+			clearScreen();
 			int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
 			return keeper;
 		}
@@ -168,12 +173,13 @@ class play {
 	}
 
 	static void getPapanSkor(int skor1, int skor2, String tim1, String tim2) {
+		System.out.print("\n");
 		System.out.println("           +---------------------||-----------||---------------------+        ");
 		System.out.println("           | " + tim1 + " || [" + skor1 + "] - [" + skor2 + "] || " + tim2 + " |");
 	}
 
 	static void getTitikGawang(int skor1, int skor2, String tim1, String tim2) {
-		sc.nextLine();
+		// sc.nextLine();
 		getPapanSkor(skor1, skor2, tim1, tim2);
 		System.out.println("    _______|_____________________||___________||_____________________|_______ ");
 		System.out.println("   |  _____________________________________________________________________  |");
@@ -385,7 +391,8 @@ class play {
 		int statusMenu = 0;
 		do { // while (statusMenu!=0);
 			clearScreen();
-			System.out.println("\n     ___              _                                     _  _    _   ___ ");
+			System.out.print("\n\n\n\n\n");
+			System.out.println("     ___              _                                     _  _    _   ___ ");
 			System.out.println("    |  _|            | |                                   | || |  (_) |_  |");
 			System.out.println("    | |     __ _   __| | _   _   _ __    ___  _ __    __ _ | || |_  _    | |");
 			System.out.println("    | |    / _` | / _` || | | | | '_ \\  / _ \\| '_ \\  / _` || || __|| |   | |");
@@ -419,14 +426,16 @@ class play {
 					char [] sembunyi;
 
 					clearScreen();
+					System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
 					System.out.println("\t\t\t\t+--------------+---+");
 					System.out.println("\t\t\t\t| Singleplayer | 1 |");
 					System.out.println("\t\t\t\t+--------------+---+");
 					System.out.println("\t\t\t\t| Multiplayer  | 2 |");
 					System.out.println("\t\t\t\t+--------------+---+");
-					System.out.print("\t\t"); multiplayer = sc.nextInt();
+					System.out.print("\t\t\t\tMasukan pilihan: "); multiplayer = sc.nextInt();
 
 					clearScreen();
+					System.out.print("\n\n\n");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 					System.out.println("\t| NO | NAMA TIM            | LOKASI      | JULUKAN             |");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
@@ -475,6 +484,7 @@ class play {
 
 					sc.nextLine();
 					clearScreen();
+					System.out.print("\n\n\n");
 					System.out.println("\t                                                    ,/)");
 					System.out.println("\t                                                    |_|    ");
 					System.out.println("\t        _        _        _        _        _       ].[    ");
@@ -497,24 +507,26 @@ class play {
 					System.out.println("\t           | | | | | || |_| || || (_| || ||_||_||_|");
 					System.out.println("\t           |_| |_| |_| \\__,_||_| \\__,_||_|(_)(_)(_)\n");
 					System.out.println("\t                           [ENTER]");
-					System.out.print("\t                              ");sc.nextLine();
+					System.out.print("\t                              ");
+
+					sc.nextLine();
+					clearScreen();
 
 					tim1 = timList[idTim1];
 					tim2 = timList[idTim2];
 
 					statusInput = "salah";
 					do { //while (giliran<10);
-						getTitikGawang(skor1, skor2, tim1, tim2);
+						// getTitikGawang(skor1, skor2, tim1, tim2);
 						
 						if (tukar == 0) {
 							do {
-								shooter = setShooter(tukar);
+								shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
-								keeper = setKeeper(tukar);
-								System.out.println("\n\n");
+								keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -531,19 +543,20 @@ class play {
 
 							tukar = 1;
 							resetTitik();
-							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
+							System.out.print("\n                       Tekan [ENTER] untuk melanjutkan"); 
+							sc.nextLine();
+							clearScreen();
 						}
 
 						else if (tukar == 1) {
 							do {
-								shooter = setShooter(tukar);
+								shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 
 							} while (statusInput.equals("salah"));
 
 							do {
-								keeper = setKeeper(tukar);
-								System.out.println("\n\n");
+								keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -560,7 +573,9 @@ class play {
 
 							tukar = 0;
 							resetTitik();
-							System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
+							System.out.print("\n                       Tekan [ENTER] untuk melanjutkan"); 
+							sc.nextLine();
+							clearScreen();
 						}
 
 						// ganti giliran
@@ -582,8 +597,9 @@ class play {
 						suddenDeath = true;
 						int sd = 0; // mengulang sudden death
 						do {
-							System.out.println("\t ____          _             _       HASIL SERI");
-							System.out.println("\t|  _ \\        | |           | |           SKOR:            ");
+							System.out.print("\n\n\n\n\n");
+							System.out.println("\t ____          _             _      HASIL SERI!");
+							System.out.println("\t|  _ \\        | |           | |           SKOR:");
 							System.out.println("\t| |_) |  __ _ | |__    __ _ | | __        +---+---+        ");
 							System.out.println("\t|  _ <  / _` || '_ \\  / _` || |/ /        | "+skor1+" | "+skor2+" |");
 							System.out.println("\t| |_) || (_| || |_) || (_| ||   < _       +---+---+        ");
@@ -595,7 +611,10 @@ class play {
 							System.out.println("\t| |                                                        ");
 							System.out.println("\t|_|                                                        ");
 							System.out.println("\t                         [ENTER]");
-							System.out.print("\t                             ");sc.nextLine();
+							System.out.print("\t                            ");
+
+							sc.nextLine();
+							clearScreen();
 
 							for (int i=1; i<=10; i++) {
 								poin1[i] = " ";
@@ -607,18 +626,15 @@ class play {
 							giliran = 0;
 
 							do {
-								getTitikGawang(skor1, skor2, tim1, tim2);
-
 								if (tukar == 0) {
 									do {
-										shooter = setShooter(tukar);
+										shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(tukar);
-										System.out.println("\n\n");
+										keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
@@ -635,20 +651,20 @@ class play {
 
 									tukar = 1;
 									resetTitik();
-									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
-									System.out.println(idPoin);
+									System.out.print("\n                       Tekan [ENTER] untuk melanjutkan"); 
+									sc.nextLine();
+									clearScreen();
 								}
 
 								else if (tukar == 1) {
 									do {
-										shooter = setShooter(tukar);
+										shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(tukar);
-										System.out.println("\n\n");
+										keeper = setKeeper(tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
@@ -665,7 +681,9 @@ class play {
 
 									tukar = 0;
 									resetTitik();
-									System.out.println("\n                       Tekan [ENTER] untuk melanjutkan"); 
+									System.out.print("\n                       Tekan [ENTER] untuk melanjutkan"); 
+									sc.nextLine();
+									clearScreen();
 								}
 								
 								idPoin = idPoin + 1;
@@ -690,6 +708,7 @@ class play {
 				break;
 				case 2:
 					clearScreen();
+					System.out.print("\n\n\n");
 					System.out.println("\t\t\t\t+---------+");
 					System.out.println("\t\t\t\t| BANTUAN |");
 					System.out.println("\t\t\t\t+---------+\n");
