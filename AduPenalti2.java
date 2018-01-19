@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 class play {
-	static void loader() throws Exception {
+	static void loader(int tukar) throws Exception {
 		int c=0;
 		boolean s=false;
 		System.out.println();
@@ -24,7 +24,7 @@ class play {
 				else
 					System.out.print("-");
 			}
-			System.out.print("] >> Komputer memprediksi tangkapan");
+			System.out.print("] >> " + ((tukar == 0) ? "Komputer memprediksi tangkapan" : "Komputer melakukan tendangan"));
 			Thread.sleep(85);
 			System.out.print("\r");
 		}
@@ -102,21 +102,29 @@ class play {
 		}
 	}
 
-	static int setShooter(int tukar, int skor1, int skor2, String tim1, String tim2) {
+	static int setShooter(int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
 		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0)
 			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
 		else
 			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
 
-		char[] sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
-		if (sembunyi.length > 0) {
+		if (tukar == 1 && player == 2) {
+			loader(tukar);
 			clearScreen();
-			int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+			int shooter = rn.nextInt(9) + 1;
 			return shooter;
 		}
-		else
-			return 0;
+		else {
+			char[] sembunyi = console.readPassword("\n   [SHOOTER] >> Masukan titik tendangan: ");
+			if (sembunyi.length > 0) {
+				clearScreen();
+				int shooter = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
+				return shooter;
+			}
+			else
+				return 0;
+		}
 	}
 
 	static int setKeeper(int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
@@ -127,13 +135,13 @@ class play {
 			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
 
 		if (tukar == 0 && player == 2) {
-			loader();
+			loader(tukar);
 			clearScreen();
 			int keeper = rn.nextInt(9) + 1;
 			return keeper;
 		}
 		else {
-			char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tendangan: ");
+			char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tangkapan: ");
 			if (sembunyi.length > 0) {
 				clearScreen();
 				int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
@@ -559,7 +567,7 @@ class play {
 						
 						if (tukar == 0) {
 							do {
-								shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
+								shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 							} while (statusInput.equals("salah"));
 
@@ -588,7 +596,7 @@ class play {
 
 						else if (tukar == 1) {
 							do {
-								shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
+								shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 
 							} while (statusInput.equals("salah"));
@@ -666,7 +674,7 @@ class play {
 							do {
 								if (tukar == 0) {
 									do {
-										shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
+										shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
@@ -696,7 +704,7 @@ class play {
 
 								else if (tukar == 1) {
 									do {
-										shooter = setShooter(tukar, skor1, skor2, tim1, tim2);
+										shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
