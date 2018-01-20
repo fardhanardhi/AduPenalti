@@ -2,11 +2,13 @@ import java.util.*;
 import java.io.*;
 
 class play {
-	static void loader(int tukar) throws Exception {
+	static void loader(int idTim2, int tukar) throws Exception {
 		int c=0;
 		boolean s=false;
 		System.out.println();
-		for (int x = 0; x < 50; x++) {
+		for (int x = 0; x < 30; x++) {
+			if (idTim2 == 0)
+				System.out.print("     ");
 			System.out.print("   [");
 			if (c==0)
 				s=false;
@@ -24,8 +26,14 @@ class play {
 				else
 					System.out.print("-");
 			}
-			System.out.print("] >> " + ((tukar == 0) ? "Komputer memprediksi tangkapan" : "Komputer melakukan tendangan"));
-			Thread.sleep(85);
+			System.out.print("] >> ");
+			if (idTim2 == 0) 
+				System.out.print("komputer memilih Tim");
+			else if (tukar == 1)
+				System.out.print("Komputer melakukan tendangan");
+			else if (tukar == 0)
+				System.out.print("Komputer memprediksi tangkapan");
+			Thread.sleep(85); //85
 			System.out.print("\r");
 		}
 	}
@@ -102,15 +110,27 @@ class play {
 		}
 	}
 
-	static int setShooter(int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
+	static int setShooter(int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
 		getTitikGawang(skor1, skor2, tim1, tim2);
-		if (tukar == 0)
-			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
-		else
-			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
+		if (tukar == 0) {
+			if (player == 2) {
+				System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
+			}
+			else {
+				System.out.println("\n\n   [Player 1] <-\n   [Computer]");
+			}
+		}
+		else {
+			if (player == 2) {
+				System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
+			}
+			else {
+				System.out.println("\n\n   [Player 1]\n   [Computer] <-");
+			}
+		}
 
-		if (tukar == 1 && player == 2) {
-			loader(tukar);
+		if (tukar == 1 && player == 1) {
+			loader(idTim2, tukar);
 			clearScreen();
 			int shooter = rn.nextInt(9) + 1;
 			return shooter;
@@ -127,21 +147,33 @@ class play {
 		}
 	}
 
-	static int setKeeper(int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
+	static int setKeeper(int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
 		getTitikGawang(skor1, skor2, tim1, tim2);
-		if (tukar == 0)
-			System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
-		else
-			System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
+		if (tukar == 0) {
+			if (player == 2) {
+				System.out.println("\n\n   [Player 1]\n   [Player 2] <-");
+			}
+			else {
+				System.out.println("\n\n   [Player 1]\n   [Computer] <-");
+			}
+		}
+		else {
+			if (player == 2) {
+				System.out.println("\n\n   [Player 1] <-\n   [Player 2]");
+			}
+			else {
+				System.out.println("\n\n   [Player 1] <-\n   [Computer]");
+			}
+		}
 
-		if (tukar == 0 && player == 2) {
-			loader(tukar);
+		if (tukar == 0 && player == 1) {
+			loader(idTim2, tukar);
 			clearScreen();
 			int keeper = rn.nextInt(9) + 1;
 			return keeper;
 		}
 		else {
-			char[] sembunyi = console.readPassword("\n   [KEEPER] >> Masukan titik tangkapan: ");
+			char[] sembunyi = console.readPassword("\n    [KEEPER] >> Masukan titik tangkapan: ");
 			if (sembunyi.length > 0) {
 				clearScreen();
 				int keeper = Character.getNumericValue(sembunyi[sembunyi.length - 1]);
@@ -468,7 +500,7 @@ class play {
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
-					int player = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 1, idTim2 = 1, idPoin=1;
+					int player = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 0, idTim2 = 0, idPoin=1;
 					char [] sembunyi;
 
 					clearScreen();
@@ -507,7 +539,9 @@ class play {
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 
 					do {
-						System.out.print("\n\t[Player 1] <-\n\t[Player 2]\n\t--------------------\n"); 
+						System.out.println("\n\t[Player 1] <-"); 
+						System.out.println((player == 1) ? "\t[Computer]" : "\t[Player 2]");
+						System.out.println("\t--------------------");
 						idTim1 = cekInput(idTim1);
 						if (idTim1>=1 && idTim1<=19)
 							statusInput = "benar";
@@ -517,16 +551,22 @@ class play {
 						}
 					} while (statusInput=="salah");
 
-					do {
-						System.out.print("\n\t[Player 1]\n\t[Player 2] <-\n\t--------------------\n");
-						idTim2 = cekInput(idTim2);
-						if (idTim2>=1 && idTim2<=19)
-							statusInput = "benar";
-						else {
-							System.out.print("\n\tInput salah, Ulangi!");
-							statusInput = "salah";
-						}
-					} while (statusInput=="salah");
+					if (player == 1) {
+						loader(idTim2, tukar);
+						idTim2 = rn.nextInt(19) + 1;
+					}
+					else {
+						do {
+							System.out.print("\n\t[Player 1]\n\t[Player 2] <-\n\t--------------------\n");
+							idTim2 = cekInput(idTim2);
+							if (idTim2>=1 && idTim2<=19)
+								statusInput = "benar";
+							else {
+								System.out.print("\n\tInput salah, Ulangi!");
+								statusInput = "salah";
+							}
+						} while (statusInput=="salah");
+					}
 
 					sc.nextLine();
 					clearScreen();
@@ -567,12 +607,12 @@ class play {
 						
 						if (tukar == 0) {
 							do {
-								shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
+								shooter = setShooter(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
-								keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -596,13 +636,13 @@ class play {
 
 						else if (tukar == 1) {
 							do {
-								shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
+								shooter = setShooter(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 								statusInput = setBola(shooter);
 
 							} while (statusInput.equals("salah"));
 
 							do {
-								keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -674,13 +714,13 @@ class play {
 							do {
 								if (tukar == 0) {
 									do {
-										shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
+										shooter = setShooter(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
@@ -704,13 +744,13 @@ class play {
 
 								else if (tukar == 1) {
 									do {
-										shooter = setShooter(player, tukar, skor1, skor2, tim1, tim2);
+										shooter = setShooter(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 										statusInput = setBola(shooter);
 
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(player, tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
