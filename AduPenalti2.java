@@ -54,7 +54,7 @@ class play {
 		do {
 			System.out.print("\tMasukan pilihan: "); 
 		    while (!sc.hasNextInt()) {
-		        System.out.print("\tInput salah!!!, Ulangi: ");
+		        System.out.print("\t Ulangi pilihan: ");
 		        sc.next(); // wajib
 		    }
 		    input = sc.nextInt();
@@ -510,7 +510,16 @@ class play {
 					System.out.println("\t\t\t\t+--------------+---+");
 					System.out.println("\t\t\t\t| Multiplayer  | 2 |");
 					System.out.println("\t\t\t\t+--------------+---+");
-					System.out.print("\t\t\t\tMasukan pilihan: "); player = sc.nextInt();
+					// mengecek exception handling
+					do {
+						System.out.print("\t\t\t\tMasukan pilihan: "); 
+					    while (!sc.hasNextInt()) {
+					        System.out.print("\t\t\t\t Ulangi pilihan: ");
+					        sc.next(); // wajib
+					    }
+					    player = sc.nextInt();
+					} while (player != 1 && player != 2);
+
 
 					clearScreen();
 					System.out.print("\n\n\n");
@@ -538,15 +547,15 @@ class play {
 					System.out.println("\t| 19 | Persebaya FC        | Surabaya    | Bonek               |");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 
+					System.out.println("\n\t[Player 1] <-"); 
+					System.out.println((player == 1) ? "\t[Computer]" : "\t[Player 2]");
+					System.out.println("\t--------------------");
 					do {
-						System.out.println("\n\t[Player 1] <-"); 
-						System.out.println((player == 1) ? "\t[Computer]" : "\t[Player 2]");
-						System.out.println("\t--------------------");
 						idTim1 = cekInput(idTim1);
 						if (idTim1>=1 && idTim1<=19)
 							statusInput = "benar";
 						else {
-							System.out.print("\n\tInput salah, Ulangi!");
+							// System.out.print("\tMasukan pilihan: ");
 							statusInput = "salah";
 						}
 					} while (statusInput=="salah");
@@ -813,7 +822,7 @@ class play {
 					System.out.println("\t\tsedangkan tim lain berhasil memasukkan ");
 					System.out.println("\t\tmaka bisa diambil pemenangnnya.\n");
 					statusMenu = 1;
-					System.out.print("\t\t[ENTER]");
+					System.out.print("\t\t[ENTER] ");
 					sc.nextLine();
 					sc.nextLine();
 				break;
@@ -823,7 +832,7 @@ class play {
 					statusMenu = 0;
 				break;
 				default:
-					System.out.println("Input Salah, tekan [ENTER]");
+					System.out.print("\tInput Salah, tekan [ENTER] ");
 					statusMenu = 1;
 					sc.nextLine();
 					sc.nextLine();
