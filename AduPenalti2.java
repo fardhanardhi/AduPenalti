@@ -99,9 +99,6 @@ class play {
 					t[i] = "*";
 			}
 		}
-		else
-			System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
-
 		if (shooter >= 1 && shooter <= 9) {
 			return "benar";
 		}
@@ -111,6 +108,7 @@ class play {
 	}
 
 	static int setShooter(int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
+		clearScreen();
 		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0) {
 			if (player == 2) {
@@ -148,6 +146,7 @@ class play {
 	}
 
 	static int setKeeper(int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
+		clearScreen();
 		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0) {
 			if (player == 2) {
@@ -611,9 +610,7 @@ class play {
 					tim2 = timList[idTim2];
 
 					statusInput = "salah";
-					do { //while (giliran<10);
-						// getTitikGawang(skor1, skor2, tim1, tim2);
-						
+					do { //while (giliran<10);						
 						if (tukar == 0) {
 							do {
 								shooter = setShooter(idTim2, player, tukar, skor1, skor2, tim1, tim2);
@@ -629,7 +626,6 @@ class play {
 									getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 								}
 								else {
-									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
 									statusInput = "salah";
 								}
 							} while (statusInput.equals("salah"));
@@ -659,7 +655,6 @@ class play {
 									getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 								}
 								else {
-									System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
 									statusInput = "salah";
 								}
 							} while (statusInput.equals("salah"));
@@ -737,7 +732,6 @@ class play {
 											getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 										}
 										else {
-											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
 											statusInput = "salah";
 										}
 									} while (statusInput.equals("salah"));
@@ -767,7 +761,6 @@ class play {
 											getTampilanGawang(t, skor1, skor2, tim1, tim2, keeper);
 										}
 										else {
-											System.out.println("----------------\nULANGI!!!\nINPUT SALAH!!!");
 											statusInput = "salah";
 										}
 									} while (statusInput.equals("salah"));
