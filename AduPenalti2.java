@@ -519,7 +519,6 @@ class play {
 					    player = sc.nextInt();
 					} while (player != 1 && player != 2);
 
-
 					clearScreen();
 					System.out.print("\n\n\n");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
