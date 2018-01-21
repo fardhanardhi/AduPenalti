@@ -145,7 +145,7 @@ class play {
 		}
 	}
 
-	static int setKeeper(int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
+	static int setKeeper(int shooter, int level, int idTim2, int player, int tukar, int skor1, int skor2, String tim1, String tim2) throws Exception {
 		clearScreen();
 		getTitikGawang(skor1, skor2, tim1, tim2);
 		if (tukar == 0) {
@@ -168,7 +168,7 @@ class play {
 		if (tukar == 0 && player == 1) {
 			loader(idTim2, tukar);
 			clearScreen();
-			int keeper = rn.nextInt(9) + 1;
+			int keeper = setKeeperAi(shooter, level);
 			return keeper;
 		}
 		else {
@@ -181,6 +181,68 @@ class play {
 			else
 				return 0;
 		}
+	}
+
+	static int setKeeperAi(int shooter, int level) {
+		String peluang = "";
+		char titik;
+
+		if (level == 1)
+			peluang = "123456789";
+		else if (level == 2) {
+			if (shooter == 1)
+				peluang = "12345678";
+			else if (shooter == 2)
+				peluang = "12345679";
+			else if (shooter == 3)
+				peluang = "12345689";
+			else if (shooter == 4)
+				peluang = "12345789";
+			else if (shooter == 5 || shooter == 8)
+				peluang = "13456789";
+			else if (shooter == 6)
+				peluang = "12356789";
+			else if (shooter == 7)
+				peluang = "12456789";
+			else if (shooter == 9)
+				peluang = "23456789";
+		}
+		else if (level == 3) {
+			if (shooter == 1 || shooter == 4 || shooter == 7)
+				peluang = "124578";
+			else if (shooter == 2)
+				peluang = "123456";
+			else if (shooter == 3 || shooter == 6 || shooter == 9)
+				peluang = "235689";
+			else if (shooter == 5 || shooter == 8)
+				peluang = "456789";
+		}
+		else if (level == 4) {
+			if (shooter == 1 || shooter == 4 || shooter == 7)
+				peluang = "147";
+			else if (shooter == 2 || shooter == 5 || shooter == 8)
+				peluang = "258";
+			else if (shooter == 3 || shooter == 6 || shooter == 9)
+				peluang = "369";
+		}
+		else if (level == 5) {
+			if (shooter == 1)
+				peluang = "14";
+			else if (shooter == 2)
+				peluang = "25";
+			else if (shooter == 3)
+				peluang = "36";
+			else if (shooter == 4 || shooter == 7)
+				peluang = "47";
+			else if (shooter == 5 || shooter == 8)
+				peluang = "58";
+			else if (shooter == 6 || shooter == 9)
+				peluang = "69";
+		}
+		int index = rn.nextInt(peluang.length());
+	    titik = peluang.charAt(index);
+	    
+		return Character.getNumericValue(titik);
 	}
 
 	static int setSkor(int keeper, int shooter, int skor1, int skor2, String[] poin1, String[] poin2, int idPoin, int tukar) {
@@ -499,7 +561,7 @@ class play {
 					String tim1, tim2, statusInput="salah";
 					String timList[] = {"                   ","     Arema FC      ","    Bali United    ","  Barito Putera FC ","  Bhayangkara FC   ","   Madura United   ","    Mitra Kukar    ","  Persegres Gresik ","  Persela Lamongan ","Perseru Serui Serui","  Persib Bandung   "," Persiba Balikpapan","Persija Jakarta    "," Persipura Jayapura","       PS TNI      ","    PSM Makassar   ","Pusamania Borneo FC","  Semen Padang FC  ","    Sriwijaya FC   ","    Persebaya FC   "};
 					String poin1[] = {""," "," "," "," "," "," "," "," "," "," "," "}, poin2[] = {""," "," "," "," "," "," "," "," "," "," "," "};
-					int player = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 0, idTim2 = 0, idPoin=1;
+					int level = 0, player = 0, giliran = 0, tukar = 0, skor1 = 0, skor2 = 0, keeper, shooter, idTim1 = 0, idTim2 = 0, idPoin=1;
 					char [] sembunyi;
 
 					clearScreen();
@@ -518,6 +580,31 @@ class play {
 					    }
 					    player = sc.nextInt();
 					} while (player != 1 && player != 2);
+
+					if (player == 1) {
+						clearScreen();
+						System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
+						System.out.println("\t\t\t\t+--------------+---+");
+						System.out.println("\t\t\t\t|    Beginer   | 1 |");
+						System.out.println("\t\t\t\t+--------------+---+");
+						System.out.println("\t\t\t\t|    Amateur   | 2 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t|    Regular   | 3 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t| Professional | 4 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t|  Top Player  | 5 |");
+						System.out.println("\t\t\t\t+--------------+---+");				
+
+						do {
+							System.out.print("\t\t\t\tMasukan pilihan: "); 
+						    while (!sc.hasNextInt()) {
+						        System.out.print("\t\t\t\t Ulangi pilihan: ");
+						        sc.next(); // wajib
+						    }
+						    level = sc.nextInt();
+						} while (level < 1 || level > 5);
+					}
 
 					clearScreen();
 					System.out.print("\n\n\n");
@@ -617,7 +704,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do { // while (statusInput.equals("salah"))
-								keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(shooter, level, idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -646,7 +733,7 @@ class play {
 							} while (statusInput.equals("salah"));
 
 							do {
-								keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
+								keeper = setKeeper(shooter, level, idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 								if (keeper >=1 && keeper <=9) {
 									statusInput = "benar";
@@ -723,7 +810,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(shooter, level, idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
@@ -752,7 +839,7 @@ class play {
 									} while (statusInput.equals("salah"));
 
 									do {
-										keeper = setKeeper(idTim2, player, tukar, skor1, skor2, tim1, tim2);
+										keeper = setKeeper(shooter, level, idTim2, player, tukar, skor1, skor2, tim1, tim2);
 
 										if (keeper >=1 && keeper <=9) {
 											statusInput = "benar";
