@@ -595,7 +595,6 @@ class play {
 						System.out.println("\t\t\t\t+--------------+---+");						
 						System.out.println("\t\t\t\t|  Top Player  | 5 |");
 						System.out.println("\t\t\t\t+--------------+---+");				
-						// level = sc.nextInt();
 
 						do {
 							System.out.print("\t\t\t\tMasukan pilihan: "); 
@@ -605,7 +604,6 @@ class play {
 						    }
 						    level = sc.nextInt();
 						} while (level < 1 || level > 5);
-
 					}
 
 					clearScreen();
