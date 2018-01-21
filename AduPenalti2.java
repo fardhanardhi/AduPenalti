@@ -583,9 +583,6 @@ class play {
 
 					if (player == 1) {
 						clearScreen();
-						for (int i = 0; i < 100; i++) {
-							System.out.print((rn.nextInt(10+1-5) + 5) + ", ");
-						}
 						System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
 						System.out.println("\t\t\t\t+--------------+---+");
 						System.out.println("\t\t\t\t|    Beginer   | 1 |");
@@ -598,7 +595,17 @@ class play {
 						System.out.println("\t\t\t\t+--------------+---+");						
 						System.out.println("\t\t\t\t|  Top Player  | 5 |");
 						System.out.println("\t\t\t\t+--------------+---+");				
-						level = sc.nextInt();
+						// level = sc.nextInt();
+
+						do {
+							System.out.print("\t\t\t\tMasukan pilihan: "); 
+						    while (!sc.hasNextInt()) {
+						        System.out.print("\t\t\t\t Ulangi pilihan: ");
+						        sc.next(); // wajib
+						    }
+						    level = sc.nextInt();
+						} while (level < 1 || level > 5);
+
 					}
 
 					clearScreen();
