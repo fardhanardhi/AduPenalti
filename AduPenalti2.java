@@ -519,6 +519,22 @@ class play {
 					    player = sc.nextInt();
 					} while (player != 1 && player != 2);
 
+					if (player == 1) {
+						clearScreen();
+						System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
+						System.out.println("\t\t\t\t+--------------+---+");
+						System.out.println("\t\t\t\t|    Beginer   | 1 |");
+						System.out.println("\t\t\t\t+--------------+---+");
+						System.out.println("\t\t\t\t|    Amateur   | 2 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t|    Regular   | 3 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t| Professional | 4 |");
+						System.out.println("\t\t\t\t+--------------+---+");						
+						System.out.println("\t\t\t\t|  Top Player  | 5 |");
+						System.out.println("\t\t\t\t+--------------+---+");				
+						sc.next();
+					}
 
 					clearScreen();
 					System.out.print("\n\n\n");
