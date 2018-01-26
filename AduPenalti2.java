@@ -644,30 +644,43 @@ class play {
 						} while (level < 1 || level > 5);
 					}
 
+					String daftarTim[][] = {
+						{"Arema FC           ", "Malang     ", "Singo Edan         "},
+						{"Bali United        ", "Bali       ", "Serdadu Tridatu    "},
+						{"Barito Putera FC   ", "Banjarmasi ", "Laskar Antasari    "},
+						{"Bhayangkara FC     ", "Bekasi     ", "-                  "},
+						{"Madura United      ", "Madura     ", "Laskar Sape Kerrab "},
+						{"Mitra Kukar        ", "Tenggarong ", "Si Naga Mekes      "},
+						{"Persegres Gresik   ", "Gresik     ", "Kebo Giras         "},
+						{"Persela Lamongan   ", "Lamongan   ", "Laskar Joko Tingkir"},
+						{"Perseru Serui Serui", "Papua      ", "Cendrawasih Jingga "},
+						{"Persib Bandung     ", "Bandung    ", "Maung Bandung      "},
+						{"Persiba Balikpapan ", "Balikpapan ", "Beruang Madu       "},
+						{"Persija Jakarta    ", "Jakarta    ", "Macan Kemayoran    "},
+						{"Persipura Jayapura ", "Jayapura   ", "Mutiara Hitam      "},
+						{"PS TNI             ", "-          ", "-                  "},
+						{"PSM Makassar       ", "Makassar   ", "Pasukan Ramang     "},
+						{"Pusamania Borneo FC", "Samarinda  ", "Pesut Etam         "},
+						{"Semen Padang FC    ", "Padang     ", "Kabau Sirah        "},
+						{"Sriwijaya FC       ", "Palembang  ", "Laskar Wong Kito   "},
+						{"Persebaya FC       ", "Surabaya   ", "Bonek              "}
+					};
+
 					clearScreen();
 					System.out.print("\n\n\n");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 					System.out.println("\t| NO | NAMA TIM            | LOKASI      | JULUKAN             |");
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
-					System.out.println("\t| 1  | Arema FC            | Malang      | Singo Edan          |");
-					System.out.println("\t| 2  | Bali United         | Bali        | Serdadu Tridatu     |");
-					System.out.println("\t| 3  | Barito Putera FC    | Banjarmasin | Laskar Antasari     |");
-					System.out.println("\t| 4  | Bhayangkara FC      | Bekasi      | -                   |");
-					System.out.println("\t| 5  | Madura United       | Madura      | Laskar Sape Kerrab  |");
-					System.out.println("\t| 6  | Mitra Kukar         | Tenggarong  | Si Naga Mekes       |");
-					System.out.println("\t| 7  | Persegres Gresik    | Gresik      | Kebo Giras          |");
-					System.out.println("\t| 8  | Persela Lamongan    | Lamongan    | Laskar Joko Tingkir |");
-					System.out.println("\t| 9  | Perseru Serui Serui | Papua       | Cendrawasih Jingga  |");
-					System.out.println("\t| 10 | Persib Bandung      | Bandung     | Maung Bandung       |");
-					System.out.println("\t| 11 | Persiba Balikpapan  | Balikpapan  | Beruang Madu        |");
-					System.out.println("\t| 12 | Persija Jakarta     | Jakarta     | Macan Kemayoran     |");
-					System.out.println("\t| 13 | Persipura Jayapura  | Jayapura    | Mutiara Hitam       |");
-					System.out.println("\t| 14 | PS TNI              | -           | -                   |");
-					System.out.println("\t| 15 | PSM Makassar        | Makassar    | Pasukan Ramang      |");
-					System.out.println("\t| 16 | Pusamania Borneo FC | Samarinda   | Pesut Etam          |");
-					System.out.println("\t| 17 | Semen Padang FC     | Padang      | Kabau Sirah         |");
-					System.out.println("\t| 18 | Sriwijaya FC        | Palembang   | Laskar Wong Kito    |");
-					System.out.println("\t| 19 | Persebaya FC        | Surabaya    | Bonek               |");
+					for (int i=0; i<19; i++) {
+						if (i<9)
+							System.out.print("\t| " + (i+1) + "  | ");
+						else
+							System.out.print("\t| " + (i+1) + " | ");
+						for (int j=0; j<3; j++) {
+							System.out.print(daftarTim[i][j] + " | ");
+						}
+						System.out.println();
+					}
 					System.out.println("\t+----+---------------------+-------------+---------------------+");
 
 					System.out.println("\n\t[Player 1] <-"); 
@@ -678,7 +691,6 @@ class play {
 						if (idTim1>=1 && idTim1<=19)
 							statusInput = "benar";
 						else {
-							// System.out.print("\tMasukan pilihan: ");
 							statusInput = "salah";
 						}
 					} while (statusInput=="salah");
