@@ -524,6 +524,44 @@ class play {
 	// ------ Main method ------------------------------------------------------------------------------------
 
     public static void main(String[] args) throws Exception {
+    	clearScreen();
+    	System.out.println();
+    	System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("\t              _         _____                 _ _   _ ");
+		System.out.println("\t     /\\      | |       |  __ \\               | | | (_)");
+		System.out.println("\t    /  \\   __| |_   _  | |__) |__ _ __   __ _| | |_ _ ");
+		System.out.println("\t   / /\\ \\ / _` | | | | |  ___/ _ \\ '_ \\ / _` | | __| |");
+		System.out.println("\t  / ____ \\ (_| | |_| | | |  |  __/ | | | (_| | | |_| |");
+		System.out.println("\t /_/    \\_\\__,_|\\__,_| |_|   \\___|_| |_|\\__,_|_|\\__|_|");
+		System.out.println();
+		System.out.println("\t\t\t ___     ___    __    ___  ");
+		System.out.println("\t\t\t|__ \\   / _ \\  /_ |  / _ \\ ");
+		System.out.println("\t\t\t   ) | | | | |  | | | (_) |");
+		System.out.println("\t\t\t  / /  | | | |  | |  > _ < ");
+		System.out.println("\t\t\t / /_  | |_| |  | | | (_) |");
+		System.out.println("\t\t\t|____|  \\___/   |_|  \\___/ ");
+		System.out.println();     
+                                                                                                                                     
+    	System.out.println();
+		for (int i=0; i<=50; i++) {
+			System.out.print("\t  [");
+			for (int k=0; k<i; k++) {
+				System.out.print("#");
+			}
+			for (int j=50; j>i; j--) {
+				System.out.print("-");
+			}
+			System.out.print("] " + (i+i) + "% ");
+			Thread.sleep(30);
+			System.out.print("\r");
+		}
+
+		Thread.sleep(500);
+
+		clearScreen();
 
 		int menu = 5;
 		int statusMenu = 0;
