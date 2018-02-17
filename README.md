@@ -8,7 +8,7 @@ Adu Penalti dapat dijalankan di semua sistem operasi yang telah terinstall Java 
 Download JDK - [Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 
-Download AduPenalti.jar - [Download](https://github.com/fardhanardhi/AduPenalti2/raw/master/JAR%20File/AduPenalti.jar)
+Download AduPenalti.jar - [Download](https://github.com/fardhanardhi/AduPenalti2/raw/master/File/AduPenalti.jar)
 
 
 Jalankan file .jar di Command Prompt / Terminal
@@ -16,3 +16,4 @@ Jalankan file .jar di Command Prompt / Terminal
 java -jar AduPenalti.jar
 ```
 Mainkan!
+![Gameplay](https://github.com/fardhanardhi/AduPenalti2/blob/master/File/ss.png?raw=true "Adu Penalti Gameplay")
