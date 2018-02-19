@@ -1,4 +1,4 @@
-# Adu Penalti
+# Adu Penalti ⚽
 Permainan Adu Penalti dengan antarmuka berbasis teks dan karakter (ASCII Art) dengan mode permainan Player vs AI / Komputer (Singleplayer) dan Player vs Player (Multiplayer) secara bergantian yang diprogram dengan java. 
 
 ## Memulai
