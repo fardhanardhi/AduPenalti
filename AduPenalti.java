@@ -12,7 +12,7 @@ class play {
 			System.out.print("   [");
 			if (c==0)
 				s=false;
-			else if (c==6)
+			else if (c==10)
 				s=true;
 
 			if (s==false)
@@ -20,7 +20,7 @@ class play {
 			else
 				c--;
 
-			for (int i=0; i<7; i++) {
+			for (int i=0; i<11; i++) {
 				if (i==c)
 					System.out.print("*");
 				else
@@ -33,7 +33,7 @@ class play {
 				System.out.print("Komputer melakukan tendangan");
 			else if (tukar == 0)
 				System.out.print("Komputer memprediksi tangkapan");
-			Thread.sleep(85); //85
+			Thread.sleep(40); //85
 			System.out.print("\r");
 		}
 	}
